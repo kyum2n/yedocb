@@ -18,4 +18,13 @@ public interface AdminMapper {
 	
 	// 관리자 아이디로 관리자 조회
 	Admin selectByAId(String aId);
+	
+	// 관리자 로그인
+	Admin loginAdmin(String aId, String aPwd);
+	
+	// 관리자 이메일로 관리자 아이디 찾기
+	Admin findAdminId(String aEmail);
+	
+	// 관리자 아이디로 비밀번호 찾기
+	String findAdminPassword(String aId, String aEmail);
 }
