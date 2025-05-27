@@ -1,5 +1,8 @@
 package com.example.yedocb.reservation.entity;
 
-public class Reservation {
+import lombok.Setter;
 
+@Setter
+public class Reservation {
+	private int rId;
 }

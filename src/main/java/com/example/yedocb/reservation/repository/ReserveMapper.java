@@ -1,5 +1,8 @@
 package com.example.yedocb.reservation.repository;
 
-public class ReserveMapper {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ReserveMapper {
 
 }
