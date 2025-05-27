@@ -4,7 +4,7 @@ import com.example.yedocb.admin.entity.Admin;
 
 public interface AdminService {
 	// 관리자 등록
-	void registerStaff(Admin admin, String createdBy);
+	void registerStaff(Admin admin);
 	
 	// 관리자 삭제
 	void deleteStaff(String aId);
