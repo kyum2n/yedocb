@@ -8,10 +8,10 @@ import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
 public class AdminLoginController {
-	private final AdminLoginService adminLoginService;
-	
-	// 관리자 로그인
-	public String loginAdmin(@RequestParam("aId") aId, @RequestParam("aPwd") aPwd) {
-		
-	}
+//	private final AdminLoginService adminLoginService;
+//	
+//	// 관리자 로그인
+//	public String loginAdmin(@RequestParam("aId") String aId, @RequestParam("aPwd") String aPwd) {
+//		
+//	}
 }
