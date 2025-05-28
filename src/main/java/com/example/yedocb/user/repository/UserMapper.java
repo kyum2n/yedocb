@@ -6,5 +6,26 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
+	// 로그인용 ID, 비밀번호 확인
     User selectByUIdAndPwd(@Param("uId") String uId, @Param("uPwd") String uPwd);
+    
+    // 전화번호 또는 비밀번호 수정
+    int updateUserPhonePwd(@Param("uId") String uId,
+            @Param("phone") String phone,
+            @Param("pwd") String pwd);
+    
+    // 회원 가입
+    int insertUser(User user);
+    
+    // 회원 탈퇴
+    int deleteUser(@Param("uId") String uId);
+
+    // 이메일로 사용자 아이디 조회
+    String selectUIdByEmail(@Param("uEmail") String uEmail);
+    
+    // 아이디로 이메일 조회
+    String selectEmailByUId(@Param("uId") String uId);
+
+    // 임시 비밀번호로 업데이트
+    int updatePassword(@Param("uId") String uId, @Param("pwd") String pwd);
 }
