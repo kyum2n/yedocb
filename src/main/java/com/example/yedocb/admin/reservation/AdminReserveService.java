@@ -1,7 +1,8 @@
 package com.example.yedocb.admin.reservation;
 
-import com.example.yedocb.reservation.entity.Reservation;
 import java.util.List;
+
+import com.example.yedocb.reservation.entity.Reservation;
 
 public interface AdminReserveService {
     List<Reservation> getAllReservations();

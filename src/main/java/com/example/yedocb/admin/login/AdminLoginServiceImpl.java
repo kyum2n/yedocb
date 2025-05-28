@@ -1,0 +1,36 @@
+package com.example.yedocb.admin.login;
+
+import org.springframework.stereotype.Service;
+
+import com.example.yedocb.admin.entity.Admin;
+import com.example.yedocb.admin.repository.AdminMapper;
+
+/**
+ * packageName    : com.exmple.yedocb.admin.login
+ * fileName       : AdminLoginServiceImpl
+ * author         : lkm
+ * date           : 250527
+ * description    : 서비스 구현체 (관리자 로그인)
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 
+ */
+
+@Service
+public class AdminLoginServiceImpl implements AdminLoginService{
+	
+	// 필드 및 생성자 주입
+	private AdminMapper adminMapper;
+	
+	public AdminLoginServiceImpl(AdminMapper adminMapper) {
+		this.adminMapper = adminMapper;
+	}
+
+	// 관리자 로그인
+	@Override
+	public boolean loginAdmin(String aId, String aPwd) {
+		Admin admin = adminMapper.loginAdmin(aId, aPwd);
+		return admin != null;
+	};
+}

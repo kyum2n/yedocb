@@ -1,44 +1,54 @@
 package com.example.yedocb.admin.info;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
-import com.example.yedocb.user.entity.User;
+
+import com.example.yedocb.admin.entity.Admin;
 import com.example.yedocb.admin.repository.AdminMapper;
-import lombok.RequiredArgsConstructor;
 
 /**
- * packageName    : com/example/yedocb/admin/info
- * fileName       : AdminServiceImpl.java 
- * author         : JKW
- * date           : 2025/05/27
- * description    :
+ * packageName    : com.exmple.yedocb.admin.info
+ * fileName       : AdminServiceImpl
+ * author         : lkm
+ * date           : 250527
+ * description    : 서비스 구현체 (관리자 등록, 삭제, 아이디/비번 찾기)
  * ===========================================================
- * DATE          AUTHOR                 NOTE
+ * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2025/05/27     JKW                  최초작성          
+ * 
  */
+
 @Service
-@RequiredArgsConstructor
-public class AdminServiceImpl implements AdminService {
+public class AdminServiceImpl implements AdminService{
+	
+	// 필드 및 생성자 주입
+	private AdminMapper adminMapper;
+	
+	public AdminServiceImpl(AdminMapper adminmapper) {
+		this.adminMapper = adminMapper;
+	}
 
-    private final AdminMapper adminMapper;
-    
-    public AdminServiceImpl(AdminMapper adminMapper) {
-    	this.adminMapper = adminMapper;
-    }
-    
-    @Override
-    public List<User> getAllUsers() {
-        return adminMapper.selectAllUsers();
-    }
+	// 관리자 등록
+	@Override
+	public void registerStaff(Admin admin) {
+		adminMapper.insertAdmin(admin);
+	};
+	
+	// 관리자 삭제
+	@Override
+	public void deleteStaff(String aId) {
+		adminMapper.deleteAdmin(aId);
+	};
+	
+	// 관리자 이메일로 관리자 아이디 찾기
+	@Override
+	public Admin findAdminId(String aEmail) {
+		return adminMapper.findAdminId(aEmail);
+	};
+	
+	// 관리자 아이디로 비밀번호 찾아서 이메일로 임시 비밀번호 발송하기
+	@Override
+	public String findAdminPassword(String aId, String aEmail) {
+		return adminMapper.findAdminPassword(aId, aEmail);
+	};
 
-    @Override
-    public void registerUser(User user) {
-        adminMapper.insertUser(user);
-    }
-
-    @Override
-    public void deleteUser(String uId) {
-        adminMapper.deleteUser(uId);
-    }
 }
