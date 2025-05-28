@@ -20,12 +20,15 @@ import com.example.yedocb.admin.repository.AdminMapper;
 
 @Service
 public class AdminServiceImpl implements AdminService{
+
+    private final AdminEmailService adminEmailService;
 	
 	// 필드 및 생성자 주입
 	private AdminMapper adminMapper;
 	
-	public AdminServiceImpl(AdminMapper adminmapper) {
+	public AdminServiceImpl(AdminMapper adminmapper, AdminEmailService adminEmailService) {
 		this.adminMapper = adminMapper;
+		this.adminEmailService = adminEmailService;
 	}
 
 	// 관리자 등록
@@ -49,7 +52,13 @@ public class AdminServiceImpl implements AdminService{
 	// 관리자 아이디로 비밀번호 찾아서 이메일로 임시 비밀번호 발송하기
 	@Override
 	public String findAdminPassword(String aId, String aEmail) {
-		return adminMapper.findAdminPassword(aId, aEmail);
+		String aPwd = adminMapper.findAdminPassword(aId, aEmail);
+		
+		if(aPwd != null) {
+			adminEmailService.sendPasswordEmail(aEmail, aPwd);
+		}
+		
+		return aPwd;
 	};
 
 }

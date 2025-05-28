@@ -1,5 +1,5 @@
 package com.example.yedocb.reservation.repository;
 
-public interface ReserveMapper {
+public interface ReservationMapper {
 
 }
