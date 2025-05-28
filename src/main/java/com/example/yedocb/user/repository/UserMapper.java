@@ -1,10 +1,17 @@
 package com.example.yedocb.user.repository;
 
-import com.example.yedocb.user.entity.User;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+
+import com.example.yedocb.user.entity.User;
 
 @Mapper
 public interface UserMapper {
-    User selectByUIdAndPwd(@Param("uId") String uId, @Param("uPwd") String uPwd);
+    int insertUser(User user);
+    User selectByUId(String uId);
+    User selectByUEmail(String uEmail);
+    int updateUserPhonePwd(String uId, String phone, String pwd);
+    int deleteUser(String uId);
+    List<User> selectAllUsers();
 }

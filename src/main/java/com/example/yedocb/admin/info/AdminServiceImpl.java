@@ -1,6 +1,5 @@
 package com.example.yedocb.admin.info;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.yedocb.admin.entity.Admin;

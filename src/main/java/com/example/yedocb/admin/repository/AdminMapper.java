@@ -3,6 +3,7 @@ package com.example.yedocb.admin.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+
 import com.example.yedocb.admin.entity.Admin;
 
 @Mapper

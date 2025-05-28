@@ -14,4 +14,5 @@ public interface AdminService {
 	
 	// 관리자 아이디로 비밀번호 찾아서 이메일로 임시 비밀번호 발송하기
 	String findAdminPassword(String aId, String aEmail);
+
 }

@@ -57,5 +57,5 @@ public class AdminController {
 		}
 		return ResponseEntity.ok("관리자 정보가 이메일로 발송되었습니다.");
 	}
-	
+
 }
