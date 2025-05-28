@@ -4,8 +4,10 @@ import java.time.LocalTime;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Setter;
 
 @Data
+@Setter
 public class Reservation {
     private int rId;
     private String uId;

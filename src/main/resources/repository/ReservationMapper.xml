@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.example.yedocb.reservation.repository.ReservationMapper">
+
+    <insert id="insertReservation" parameterType="Reservation">
+        INSERT INTO reservations(u_id, t_name, consult_date, consult_time, status)
+        VALUES (#{uId}, #{tName}, #{consultDate}, #{consultTime}, #{status})
+    </insert>
+
+    <select id="selectByUserId" resultType="Reservation">
+        SELECT * FROM reservations WHERE u_id = #{uId}
+    </select>
+
+    <update id="updateReservation" parameterType="Reservation">
+        UPDATE reservations
+        SET t_name = #{tName}, consult_date = #{consultDate}, consult_time = #{consultTime}, status = #{status}
+        WHERE r_id = #{rId}
+    </update>
+
+    <delete id="deleteReservation">
+        DELETE FROM reservations WHERE r_id = #{rId}
+    </delete>
+
+    <select id="selectAllReservation" resultType="Reservation">
+        SELECT * FROM reservations
+    </select>
+
+    <select id="selectByDate" resultType="Reservation">
+        SELECT * FROM reservations WHERE consult_date = #{consultDate}
+    </select>
+
+    <update id="updateStatus">
+        UPDATE reservations SET status = #{status} WHERE r_id = #{rId}
+    </update>
+
+</mapper>

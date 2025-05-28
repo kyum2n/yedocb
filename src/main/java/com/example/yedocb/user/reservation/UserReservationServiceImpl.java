@@ -49,10 +49,10 @@ public class UserReservationServiceImpl implements UserReservationService {
     public void updateReservation(Reservation reservation) {
         reservationMapper.updateReservation(reservation);
 
-//        // 예약이 '확정'으로 바뀌면 이메일 알림
-//        if ("확정".equals(reservation.getStatus())) {
-//            emailService.sendConfirmEmail(reservation.getUId(), reservation);
-//        }
+        // 예약이 '확정'으로 바뀌면 이메일 알림
+        if ("확정".equals(reservation.getStatus())) {
+            emailService.sendConfirmEmail(reservation.getUId(), reservation);
+        }
     }
 
     @Override
