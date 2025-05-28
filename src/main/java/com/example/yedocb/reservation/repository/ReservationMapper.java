@@ -1,5 +1,6 @@
 package com.example.yedocb.reservation.repository;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface ReservationMapper {
     List<Reservation> selectAllReservation();
     List<Reservation> selectByDate(Date consultDate);
     int updateStatus(int rId, String status);
+
 }
