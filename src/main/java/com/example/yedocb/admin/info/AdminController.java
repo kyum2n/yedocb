@@ -53,11 +53,9 @@ public class AdminController {
 	public ResponseEntity<String> findAdminPassword(@RequestParam("aId") String aId, @RequestParam("aEmail") String aEmail){
 		String aPwd = adminService.findAdminPassword(aId, aEmail);
 		if(aPwd == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 관리자 정보를 찾을 수 없습니다.");
 		}
-		return ResponseEntity.ok(aPwd);
+		return ResponseEntity.ok("관리자 정보가 이메일로 발송되었습니다.");
 	}
-	
-	
 	
 }

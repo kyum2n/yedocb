@@ -13,4 +13,6 @@ public class Admin {
 	private String aPwd; //관리자 비밀번호
 	private String role; //관리자 권한 - 최고관리자/직원관리자
 	private String createdBy; //최고관리자 아이디
+	
+
 }
