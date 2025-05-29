@@ -37,8 +37,8 @@ public class UserController {
         return ResponseEntity.ok("회원가입이 완료되었습니다.");
     }
     // 회원 탈퇴 : uId 기준으로 사용자 정보 삭제
-    @DeleteMapping("/{uId}")
-    public ResponseEntity<String> deleteUser(@PathVariable String uId) {
+    @PostMapping("/{uId}") 
+    public ResponseEntity<String> deleteUser(@PathVariable("uId") String uId) {
         userService.deleteUser(uId);
         return ResponseEntity.ok("회원 탈퇴가 완료되었습니다.");
     }
@@ -47,7 +47,7 @@ public class UserController {
     @PostMapping("/find_id")
     public ResponseEntity<String> findUserId(@RequestBody Map<String, String> payload) {
         String email = payload.get("email");
-        String uId = userService.findUserIdByEmail(email);
+        String uId = userService.findUserId(email);
         if (uId != null) {
             String maskedId = uId.length() <= 3 ? "***" : uId.substring(0, 3) + "***";
             return ResponseEntity.ok(maskedId);
@@ -61,7 +61,7 @@ public class UserController {
     public ResponseEntity<String> resetPassword(@RequestBody Map<String, String> payload) {
     	String uId = payload.get("uId");
     	String email = payload.get("email");
-    	String tempPwd = userService.resetPassword(uId, email);
+    	String tempPwd = userService.findUserPassword(uId, email);
     	return tempPwd != null
     	    ? ResponseEntity.ok(tempPwd)
     	    : ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 정보로 사용자를 찾을 수 없습니다.");

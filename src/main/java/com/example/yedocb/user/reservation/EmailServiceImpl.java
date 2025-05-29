@@ -5,6 +5,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.yedocb.reservation.entity.Reservation;
+import com.example.yedocb.user.repository.UserMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,9 +26,12 @@ import lombok.RequiredArgsConstructor;
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender mailSender;
+    private final UserMapper userMapper;
 
     @Override
     public void sendConfirmEmail(String uId, Reservation reservation) {
+    	String email = userMapper.selectByUId(uId);
+    	
         String subject = "[YeDoc] 예약 확정 알림";
         String text = String.format(
             "안녕하세요 %s님,\n\n예약이 확정되었습니다.\n\n시술 항목: %s\n일시: %s %s\n\n감사합니다.",
@@ -38,7 +42,7 @@ public class EmailServiceImpl implements EmailService {
         );
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo("test@example.com"); // TODO: 실 사용자 이메일로 교체 필요
+        message.setTo(email);
         message.setSubject(subject);
         message.setText(text);
 
