@@ -4,30 +4,53 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="com.example.yedocb.user.repository.UserMapper">
-
-    <insert id="insertUser" parameterType="User">
-        INSERT INTO users(u_id, u_name, u_pwd, u_email, u_phone)
-        VALUES (#{uId}, #{uName}, #{uPwd}, #{uEmail}, #{uPhone})
-    </insert>
-
-    <select id="selectByUId" resultType="User">
-        SELECT * FROM users WHERE u_id = #{uId}
+    <!-- 로그인용 ID, 비밀번호 확인 -->
+    <select id="selectByUIdAndPwd" parameterType="map" resultType="com.example.yedocb.user.entity.User">
+        SELECT * FROM users
+        WHERE uId = #{uId}
+          AND uPwd = #{uPwd}
     </select>
 
-    <select id="selectByUEmail" resultType="User">
-        SELECT * FROM users WHERE u_email = #{uEmail}
-    </select>
-
-    <update id="updateUserPhonePwd">
-        UPDATE users SET u_phone = #{phone}, u_pwd = #{pwd} WHERE u_id = #{uId}
+    <!-- 전화번호 또는 비밀번호 수정 -->
+    <update id="updateUserPhonePwd" parameterType="map">
+        UPDATE users
+        <set>
+            <if test="phone != null"> uPhone = #{phone}, </if>
+            <if test="pwd != null"> uPwd = #{pwd} </if>
+        </set>
+        WHERE uId = #{uId}
     </update>
 
-    <delete id="deleteUser">
-        DELETE FROM users WHERE u_id = #{uId}
-    </delete>
+    <!-- 회원가입 -->
+    <insert id="insertUser" parameterType="com.example.yedocb.user.entity.User">
+        INSERT INTO users (uId, uName, uEmail, uPwd, uPhone)
+        VALUES (#{uId}, #{uName}, #{uEmail}, #{uPwd}, #{uPhone})
+    </insert>
 
-    <select id="selectAllUsers" resultType="User">
-        SELECT * FROM users
-    </select>
+    <!-- 회원탈퇴 -->
+    <delete id="deleteUser" parameterType="string">
+        DELETE FROM users
+        WHERE uId = #{uId}
+    </delete>
+    
+    <!-- 이메일로 ID 조회 -->
+    <select id="selectUIdByEmail" parameterType="string" resultType="string">
+    	SELECT uId FROM users WHERE uEmail = #{uEmail}
+	</select>
+	
+	<!-- 아이디로 이메일 조회 -->
+	<select id="selectEmailByUId" parameterType="string" resultType="string">
+    	SELECT uEmail FROM users WHERE uId = #{uId}
+	</select>
+
+	<!-- 비밀번호 변경 -->
+	<update id="updatePassword" parameterType="map">
+    	UPDATE users SET uPwd = #{pwd} WHERE uId = #{uId}
+	</update>
+	
+	<!-- 회원 전체 조회 -->
+	<select id="selectAllUsers" resultType="com.example.yedocb.user.entity.User">
+    	SELECT * FROM users
+	</select>
 
 </mapper>
