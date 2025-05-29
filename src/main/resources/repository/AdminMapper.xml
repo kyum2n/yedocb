@@ -11,7 +11,7 @@
 	<!-- 관리자 등록 -->
 	<insert id="insertAdmin" parameterType="com.example.yedocb.admin.entity.Admin">
 		INSERT INTO admin (aId, aEmail, aPwd, role, createdBy)
-		VALUES (#{aid}, #{aemail}, #{apwd}, #{role}, #{created_by})
+		VALUES (#{aid}, #{aemail}, #{apwd}, #{role}, #{createdBy})
 	</insert>
 	
 	<!-- 관리자 삭제 -->

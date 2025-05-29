@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
 <mapper namespace="com.example.yedocb.user.repository.UserMapper">
 
     <!-- 로그인용 ID, 비밀번호 확인 -->
@@ -35,18 +35,24 @@
     </delete>
     
     <!-- 이메일로 ID 조회 -->
-    <select id="selectByUEmail" parameterType="string" resultType="string">
-    	SELECT uid FROM users WHERE uEmail = #{uEmail}
+    <select id="selectUIdByEmail" parameterType="string" resultType="string">
+    	SELECT uId FROM users WHERE uEmail = #{uEmail}
 	</select>
 	
 	<!-- 아이디로 이메일 조회 -->
-	<select id="selectByUId" parameterType="string" resultType="string">
-    	SELECT uemail FROM users WHERE uId = #{uId}
+	<select id="selectEmailByUId" parameterType="string" resultType="string">
+    	SELECT uEmail FROM users WHERE uId = #{uId}
 	</select>
 
 	<!-- 비밀번호 변경 -->
 	<update id="updatePassword" parameterType="map">
     	UPDATE users SET uPwd = #{pwd} WHERE uId = #{uId}
 	</update>
+	
+	<!-- 회원 전체 조회 -->
+	<select id="selectAllUsers" resultType="com.example.yedocb.user.entity.User">
+    	SELECT * FROM users
+	</select>
+
 
 </mapper>

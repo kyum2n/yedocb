@@ -6,22 +6,22 @@
 <mapper namespace="com.example.yedocb.reservation.repository.ReservationMapper">
 
     <insert id="insertReservation" parameterType="Reservation">
-        INSERT INTO reservations(uid, tname, consultdate, consulttime, status)
+        INSERT INTO reservations(uId, tName, consultDate, consultTime, status)
         VALUES (#{uId}, #{tName}, #{consultDate}, #{consultTime}, #{status})
     </insert>
 
     <select id="selectByUserId" resultType="Reservation">
-        SELECT * FROM reservations WHERE uid = #{uId}
+        SELECT * FROM reservations WHERE uId = #{uId}
     </select>
 
     <update id="updateReservation" parameterType="Reservation">
         UPDATE reservations
-        SET tname = #{tName}, consultdate = #{consultDate}, consulttime = #{consultTime}, status = #{status}
-        WHERE rid = #{rId}
+        SET tName = #{tName}, consultDate = #{consultDate}, consultTime = #{consultTime}, status = #{status}
+        WHERE rId = #{rId}
     </update>
 
     <delete id="deleteReservation">
-        DELETE FROM reservations WHERE rid = #{rId}
+        DELETE FROM reservations WHERE rId = #{rId}
     </delete>
 
     <select id="selectAllReservation" resultType="Reservation">
@@ -29,11 +29,11 @@
     </select>
 
     <select id="selectByDate" resultType="Reservation">
-        SELECT * FROM reservations WHERE consultdate = #{consultDate}
+        SELECT * FROM reservations WHERE consultDate = #{consultDate}
     </select>
 
     <update id="updateStatus">
-        UPDATE reservations SET status = #{status} WHERE rid = #{rId}
+        UPDATE reservations SET status = #{status} WHERE rId = #{rId}
     </update>
 
 </mapper>

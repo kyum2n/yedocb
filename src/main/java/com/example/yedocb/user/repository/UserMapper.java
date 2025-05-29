@@ -1,11 +1,19 @@
 package com.example.yedocb.user.repository;
 
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import com.example.yedocb.user.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
+	List<User> selectAllUsers();
+
 	// 로그인용 ID, 비밀번호 확인
     User selectByUIdAndPwd(@Param("uId") String uId, @Param("uPwd") String uPwd);
     
