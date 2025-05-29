@@ -13,8 +13,8 @@ public interface UserService {
     void deleteUser(String uId);
     
     // 사용자 아이디 찾기
-    String findUserId(String email);
+    User findUserId(String email);
     
     // 사용자 비밀번호 찾기
-    String findUserPassword(String uId, String uEmail); // 임시 비밀번호를 직접 반환
+    User findUserPassword(String uId, String uEmail); // 임시 비밀번호를 직접 반환
 }

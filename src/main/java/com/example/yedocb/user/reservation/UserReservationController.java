@@ -2,9 +2,13 @@ package com.example.yedocb.user.reservation;
 
 import com.example.yedocb.reservation.entity.Reservation;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -42,11 +46,16 @@ public class UserReservationController {
         return ResponseEntity.ok("예약이 취소되었습니다.");
     }
     
-//    // 예약 가능 시간 조회 (나중에 추가해야함)
-//    @GetMapping("/check")
-//    public ResponseEntity<Boolean> checkAvailable(@RequestParam String consultDate,
-//                                                  @RequestParam String consultTime) {
-//        boolean available = userReservationService.checkAvailableTime(consultDate, consultTime);
-//        return ResponseEntity.ok(available);
-//    }
+    // 예약 가능 시간 조회 (나중에 추가해야함)
+    @GetMapping("/check")
+    public ResponseEntity<Boolean> checkAvailable(
+    @RequestParam("consultDate")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") Date consultDate,
+
+    @RequestParam("consultTime")
+    @DateTimeFormat(pattern = "HH:mm") LocalTime consultTime) {
+
+    boolean available = userReservationService.isAvailableTime(consultDate, consultTime);
+    return ResponseEntity.ok(available);
+    }
 }

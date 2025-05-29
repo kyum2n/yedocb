@@ -35,5 +35,10 @@
     <update id="updateStatus">
         UPDATE reservations SET status = #{status} WHERE rId = #{rId}
     </update>
+    
+    <select id="selectByDateTime" resultType="Reservation">
+		SELECT * FROM reservations
+		WHERE consultdate = #{consultDate} AND consulttime = #{consultTime}
+	</select>
 
 </mapper>

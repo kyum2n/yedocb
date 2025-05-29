@@ -29,10 +29,10 @@ public interface UserMapper {
     int deleteUser(@Param("uId") String uId);
 
     // 이메일로 사용자 아이디 조회
-    String selectByUEmail(@Param("uEmail") String uEmail);
+    User selectByUEmail(@Param("uEmail") String uEmail);
     
     // 아이디로 이메일 조회
-    String selectByUId(@Param("uId") String uId);
+    User selectByUId(@Param("uId") String uId);
 
     // 임시 비밀번호로 업데이트
     int updatePassword(@Param("uId") String uId, @Param("pwd") String pwd);
