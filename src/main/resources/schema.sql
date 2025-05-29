@@ -7,7 +7,7 @@ CREATE TABLE admin (
 	aemail VARCHAR(100) NOT NULL UNIQUE,
 	apwd VARCHAR(255) NOT NULL,
 	role VARCHAR(20) NOT NULL,
-	created_by VARCHAR(30) UNIQUE
+	createdby VARCHAR(30) UNIQUE
 );
 
 CREATE TABLE users (

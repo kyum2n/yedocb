@@ -5,6 +5,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.yedocb.reservation.entity.Reservation;
+import com.example.yedocb.user.entity.User;
 import com.example.yedocb.user.repository.UserMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,8 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void sendConfirmEmail(String uId, Reservation reservation) {
-    	String email = userMapper.selectByUId(uId);
+    	User user = userMapper.selectByUId(uId);
+    	String email = user.getUEmail(); 
     	
         String subject = "[YeDoc] 예약 확정 알림";
         String text = String.format(
