@@ -28,23 +28,20 @@ public class UserReservationServiceImpl implements UserReservationService {
     private final ReservationMapper reservationMapper;
     private final EmailService emailService;
 
+    // 예약 등록 (상태 : 대기)
     @Override
-    public void registerReservation(Reservation reservation) {
+    public void makeReservation(Reservation reservation) {
         reservation.setStatus("대기");
         reservationMapper.insertReservation(reservation);
     }
-
+    
+    // 사용자 예약 목록 조회
     @Override
-    public boolean checkAvailableTime(String date, String time) {
-        int count = reservationMapper.countByDateTime(date, time);
-        return count == 0;
+    public List<Reservation> getMyReservations(String uId) {
+        return reservationMapper.selectByUserId(uId);
     }
 
-    @Override
-    public List<Reservation> getReservationsByUser(String uId) {
-        return reservationMapper.selectByUser(uId);
-    }
-
+    // 예약 수정 (확정 시 이메일 발송함)
     @Override
     public void updateReservation(Reservation reservation) {
         reservationMapper.updateReservation(reservation);
@@ -55,8 +52,16 @@ public class UserReservationServiceImpl implements UserReservationService {
         }
     }
 
+    // 예약 취소
     @Override
-    public void deleteReservation(int rId) {
+    public void cancelReservation(int rId) {
         reservationMapper.deleteReservation(rId);
     }
+    
+//  // [확장 기능] 예약 시간 중복 여부 확인 (나중에 추가해야함)
+//  @Override
+//  public boolean checkAvailableTime(String date, String time) {
+//      int count = reservationMapper.countByDateTime(date, time);
+//      return count == 0;
+//  }
 }

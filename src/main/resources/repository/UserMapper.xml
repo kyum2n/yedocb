@@ -8,45 +8,45 @@
     <!-- 로그인용 ID, 비밀번호 확인 -->
     <select id="selectByUIdAndPwd" parameterType="map" resultType="com.example.yedocb.user.entity.User">
         SELECT * FROM users
-        WHERE uid = #{uId}
-          AND upwd = #{uPwd}
+        WHERE uId = #{uId}
+          AND uPwd = #{uPwd}
     </select>
 
     <!-- 전화번호 또는 비밀번호 수정 -->
     <update id="updateUserPhonePwd" parameterType="map">
         UPDATE users
         <set>
-            <if test="phone != null"> uphone = #{phone}, </if>
-            <if test="pwd != null"> upwd = #{pwd} </if>
+            <if test="phone != null"> uPhone = #{phone}, </if>
+            <if test="pwd != null"> uPwd = #{pwd} </if>
         </set>
-        WHERE uid = #{uId}
+        WHERE uId = #{uId}
     </update>
 
     <!-- 회원가입 -->
     <insert id="insertUser" parameterType="com.example.yedocb.user.entity.User">
-        INSERT INTO users (uid, uname, uemail, upwd, uphone)
+        INSERT INTO users (uId, uName, uEmail, uPwd, uPhone)
         VALUES (#{uId}, #{uName}, #{uEmail}, #{uPwd}, #{uPhone})
     </insert>
 
     <!-- 회원탈퇴 -->
     <delete id="deleteUser" parameterType="string">
         DELETE FROM users
-        WHERE uid = #{uId}
+        WHERE uId = #{uId}
     </delete>
     
     <!-- 이메일로 ID 조회 -->
-    <select id="selectUIdByEmail" parameterType="string" resultType="string">
-    	SELECT uid FROM users WHERE uemail = #{uEmail}
+    <select id="selectByUEmail" parameterType="string" resultType="string">
+    	SELECT uid FROM users WHERE uEmail = #{uEmail}
 	</select>
 	
 	<!-- 아이디로 이메일 조회 -->
-	<select id="selectEmailByUId" parameterType="string" resultType="string">
-    	SELECT uemail FROM users WHERE uid = #{uId}
+	<select id="selectByUId" parameterType="string" resultType="string">
+    	SELECT uemail FROM users WHERE uId = #{uId}
 	</select>
 
 	<!-- 비밀번호 변경 -->
 	<update id="updatePassword" parameterType="map">
-    	UPDATE users SET upwd = #{pwd} WHERE uid = #{uId}
+    	UPDATE users SET uPwd = #{pwd} WHERE uId = #{uId}
 	</update>
 
 </mapper>

@@ -46,15 +46,15 @@ public class UserServiceImpl implements UserService {
     
     // 이메일을 기반으로 사용자 ID를 조회하는 메서드
     @Override
-    public String findUserIdByEmail(String email) {
-        return userMapper.selectUIdByEmail(email);
+    public String findUserId(String email) {
+        return userMapper.selectByUEmail(email);
     }
     
     // 사용자 ID를 기반으로 임시 비밀번호를 생성하고 DB에 저장하는 메서드
     // 실제 이메일 전송은 별도로 구현 필요 (현재는 콘솔 출력으로 대체)
     @Override
-    public String resetPassword(String uId, String email) {
-        String emailFromDB = userMapper.selectEmailByUId(uId);
+    public String findUserPassword(String uId, String email) {
+        String emailFromDB = userMapper.selectByUId(uId);
         if (emailFromDB != null && emailFromDB.equals(email)) {
             String tempPwd = UUID.randomUUID().toString().substring(0, 8);
             userMapper.updatePassword(uId, tempPwd);
