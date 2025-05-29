@@ -1,11 +1,9 @@
 package com.example.yedocb.user.login;
 
-import org.springframework.stereotype.Service;
-
 import com.example.yedocb.user.entity.User;
 import com.example.yedocb.user.repository.UserMapper;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor

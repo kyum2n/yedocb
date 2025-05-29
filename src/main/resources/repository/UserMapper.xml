@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="com.example.yedocb.user.repository.UserMapper">
+
     <!-- 로그인용 ID, 비밀번호 확인 -->
     <select id="selectByUIdAndPwd" parameterType="map" resultType="com.example.yedocb.user.entity.User">
         SELECT * FROM users
@@ -52,5 +53,6 @@
 	<select id="selectAllUsers" resultType="com.example.yedocb.user.entity.User">
     	SELECT * FROM users
 	</select>
+
 
 </mapper>
