@@ -25,22 +25,41 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
-    
-    private String formatPhoneNumber(String phone) {
-        // 01012345678 → 010-1234-5678 형식으로 변환
-        if (phone == null) return null;
-        return phone.replaceAll("(\\d{3})(\\d{4})(\\d{4})", "$1-$2-$3");
-    }
 
     //사용자 전화번호 or 비밀번호를 수정하는 메서드 (전달된 값 중 null이 아닌 항목 수정함)
     @Override
     public void updatePhoneAndPassword(String uId, String phone, String pwd) {
-        // phone 값이 들어온 경우에만 포맷 적용
-        if (phone != null && !phone.isBlank()) {
-            phone = formatPhoneNumber(phone); // 내부 전용 포맷 메서드
+
+        // 전화번호만 수정
+        if (phone != null && !phone.isBlank() && (pwd == null || pwd.isBlank())) {
+            userMapper.updateUserPhonePwd(uId, phone, null);
+            return;
         }
 
-        userMapper.updateUserPhonePwd(uId, phone, pwd);
+        // 비밀번호만 수정
+        if (pwd != null && !pwd.isBlank() && (phone == null || phone.isBlank())) {
+            User user = userMapper.selectByUId(uId);
+            String currentPwd = user.getUPwd();
+
+            if (currentPwd.equals(pwd)) {
+                throw new IllegalArgumentException("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.");
+            }
+
+            userMapper.updateUserPhonePwd(uId, null, pwd);
+            return;
+        }
+
+        // 둘 다 수정
+        if (phone != null && !phone.isBlank() && pwd != null && !pwd.isBlank()) {
+            User user = userMapper.selectByUId(uId);
+            String currentPwd = user.getUPwd();
+
+            if (currentPwd.equals(pwd)) {
+                throw new IllegalArgumentException("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.");
+            }
+
+            userMapper.updateUserPhonePwd(uId, phone, pwd);
+        }
     }
     
     // 사용자 회원가입을 처리하는 메서드 (전달받은 사용자 정보 DB에 저장함)

@@ -41,6 +41,6 @@
 	<!-- 관리자 아이디로 비밀번호 찾기 -->
 	<select id="findAdminPassword" resultType="String" parameterType="map">
 		SELECT aPwd FROM admin
-		WHERE aId = #{aId} AND aEMail = #{aEmail}
+		WHERE aId = #{aId} AND aEmail = #{aEmail}
 	</select>
 </mapper>
