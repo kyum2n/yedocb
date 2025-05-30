@@ -3,6 +3,7 @@ package com.example.yedocb.admin.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.yedocb.admin.entity.Admin;
 
@@ -21,11 +22,11 @@ public interface AdminMapper {
 	Admin selectByAId(String aId);
 	
 	// 관리자 로그인
-	Admin loginAdmin(String aId, String aPwd);
+	Admin loginAdmin(@Param("aId") String aId, @Param("aPwd") String aPwd);
 	
 	// 관리자 이메일로 관리자 아이디 찾기
-	Admin findAdminId(String aEmail);
+	String findAdminId(String aEmail);
 	
 	// 관리자 아이디로 비밀번호 찾기
-	String findAdminPassword(String aId, String aEmail);
+	String findAdminPassword(@Param("aId") String aId,@Param("aEmail") String aEmail);
 }

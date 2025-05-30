@@ -40,12 +40,12 @@ public class AdminController {
 	
 	// 관리자 아이디 찾기
 	@PostMapping("/find_id")
-	public ResponseEntity<Admin> findAdminId(@RequestParam("aEmail") String aEmail) {
-		Admin admin = adminService.findAdminId(aEmail);
-		if(admin == null) {
+	public ResponseEntity<String> findAdminId(@RequestParam("aEmail") String aEmail) {
+		String aId = adminService.findAdminId(aEmail);
+		if(aId == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		return ResponseEntity.ok(admin);
+		return ResponseEntity.ok(aId);
 	}
 	
 	// 관리자 비밀번호 찾기

@@ -11,36 +11,36 @@
 	<!-- 관리자 등록 -->
 	<insert id="insertAdmin" parameterType="com.example.yedocb.admin.entity.Admin">
 		INSERT INTO admin (aId, aEmail, aPwd, role, createdBy)
-		VALUES (#{aid}, #{aemail}, #{apwd}, #{role}, #{createdBy})
+		VALUES (#{aId}, #{aEmail}, #{aPwd}, #{role}, #{createdBy})
 	</insert>
 	
 	<!-- 관리자 삭제 -->
 	<delete id="deleteAdmin" parameterType="String">
 		DELETE FROM admin
-		WHERE aId = #{aid}
+		WHERE aId = #{aId}
 	</delete>
 	
 	<!-- 관리자 아이디로 관리자 조회 -->
 	<select id="selectByAId" resultType="com.example.yedocb.admin.entity.Admin">
 		SELECT * FROM admin
-		WHERE aId = #{aid}
+		WHERE aId = #{aId}
 	</select>
 
 	<!-- 관리자 로그인 -->
-	<select id="loginAdmin" resultType="com.example.yedocb.admin.entity.Admin">
+	<select id="loginAdmin" resultType="com.example.yedocb.admin.entity.Admin" parameterType="map">
 		SELECT * FROM admin
 		WHERE aId = #{aId} AND aPwd = #{aPwd}
 	</select>
 	
 	<!-- 관리자 이메일로 관리자 아이디 찾기 -->
-	<select id="findAdminId" resultType="com.example.yedocb.admin.entity.Admin">
+	<select id="findAdminId" resultType="String">
 		SELECT aId FROM admin
-		WHERE aEmail = #{aemail}
+		WHERE aEmail = #{aEmail}
 	</select>
 	
 	<!-- 관리자 아이디로 비밀번호 찾기 -->
-	<select id="findAdminPassword" resultType="com.example.yedocb.admin.entity.Admin">
+	<select id="findAdminPassword" resultType="String" parameterType="map">
 		SELECT aPwd FROM admin
-		WHERE aId = #{aid}
+		WHERE aId = #{aId} AND aEMail = #{aEmail}
 	</select>
 </mapper>

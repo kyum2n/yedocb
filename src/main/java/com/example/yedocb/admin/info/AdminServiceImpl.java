@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService{
 	// 필드 및 생성자 주입
 	private AdminMapper adminMapper;
 	
-	public AdminServiceImpl(AdminMapper adminmapper, AdminEmailService adminEmailService) {
+	public AdminServiceImpl(AdminMapper adminMapper, AdminEmailService adminEmailService) {
 		this.adminMapper = adminMapper;
 		this.adminEmailService = adminEmailService;
 	}
@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	// 관리자 이메일로 관리자 아이디 찾기
 	@Override
-	public Admin findAdminId(String aEmail) {
+	public String findAdminId(String aEmail) {
 		return adminMapper.findAdminId(aEmail);
 	};
 	
