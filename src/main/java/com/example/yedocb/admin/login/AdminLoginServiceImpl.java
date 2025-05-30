@@ -30,7 +30,9 @@ public class AdminLoginServiceImpl implements AdminLoginService{
 	// 관리자 로그인
 	@Override
 	public boolean loginAdmin(String aId, String aPwd) {
+		System.out.println("aId: " + aId + ", aPwd: " + aPwd);
 		Admin admin = adminMapper.loginAdmin(aId, aPwd);
+		System.out.println("조회 결과: " + admin);
 		return admin != null;
 	};
 }
