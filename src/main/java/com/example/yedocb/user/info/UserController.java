@@ -20,15 +20,24 @@ public class UserController {
     
     // 전화번호 수정 : uId 기준으로 연락처 정보만 수정
     @PostMapping("/phone")
-    public ResponseEntity<String> updatePhone(@RequestBody @Valid User user) {
+    public ResponseEntity<String> updatePhone(@RequestBody User user) {
+        // 직접 phone 형식 검증
+        if (user.getUPhone() == null || !user.getUPhone().matches("^010-\\d{4}-\\d{4}$")) {
+            throw new IllegalArgumentException("전화번호 형식이 올바르지 않습니다.");
+        }
+
         userService.updatePhoneAndPassword(user.getUId(), user.getUPhone(), null);
         return ResponseEntity.ok("연락처가 수정되었습니다.");
     }
     // 비밀번호 수정 : uId 기준으로 비밀번호만 수정
     @PostMapping("/password")
     public ResponseEntity<String> updatePassword(@RequestBody @Valid User user) {
-        userService.updatePhoneAndPassword(user.getUId(), null, user.getUPwd());
-        return ResponseEntity.ok("비밀번호가 수정되었습니다.");
+        try {
+            userService.updatePhoneAndPassword(user.getUId(), null, user.getUPwd());
+            return ResponseEntity.ok("비밀번호가 수정되었습니다.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
     // 회원 가입 : 사용자 정보를 받아 DB에 저장
     @PostMapping("/register")
@@ -49,8 +58,16 @@ public class UserController {
         String email = payload.get("email");
         User user = userService.findUserId(email);
         if (user != null) {
-        	String uId = user.getUId();
-            String maskedId = uId.length() <= 3 ? "***" : uId.substring(0, 3) + "***";
+            String uId = user.getUId();
+
+            String maskedId;
+            if (uId.length() <= 3) {
+                maskedId = "***";
+            } else {
+                int maskLength = uId.length() - 3;
+                maskedId = uId.substring(0, 3) + "*".repeat(maskLength);
+            }
+
             return ResponseEntity.ok(maskedId);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 이메일로 등록된 계정이 없습니다.");
