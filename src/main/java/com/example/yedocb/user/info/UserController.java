@@ -47,8 +47,9 @@ public class UserController {
     @PostMapping("/find_id")
     public ResponseEntity<String> findUserId(@RequestBody Map<String, String> payload) {
         String email = payload.get("email");
-        String uId = userService.findUserId(email);
-        if (uId != null) {
+        User user = userService.findUserId(email);
+        if (user != null) {
+        	String uId = user.getUId();
             String maskedId = uId.length() <= 3 ? "***" : uId.substring(0, 3) + "***";
             return ResponseEntity.ok(maskedId);
         } else {
@@ -61,10 +62,11 @@ public class UserController {
     public ResponseEntity<String> resetPassword(@RequestBody Map<String, String> payload) {
     	String uId = payload.get("uId");
     	String email = payload.get("email");
-    	String tempPwd = userService.findUserPassword(uId, email);
-    	return tempPwd != null
-    	    ? ResponseEntity.ok(tempPwd)
-    	    : ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 정보로 사용자를 찾을 수 없습니다.");
-
+    	User user = userService.findUserPassword(uId, email);
+        if (user != null) {
+            return ResponseEntity.ok(user.getUPwd()); // 임시 비밀번호 반환
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 정보로 사용자를 찾을 수 없습니다.");
+        }
     }
 }
