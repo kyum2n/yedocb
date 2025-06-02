@@ -29,10 +29,9 @@
     </insert>
 
     <!-- 회원탈퇴 -->
-    <delete id="deleteUser" parameterType="string">
-        DELETE FROM users
-        WHERE uId = #{uId}
-    </delete>
+    <delete id="deleteUser" parameterType="String">
+    	DELETE FROM users WHERE uId = #{uId}
+	</delete>
     
     <!-- 이메일로 ID 조회 -->
     <select id="selectByUEmail" parameterType="string" resultType="com.example.yedocb.user.entity.User">

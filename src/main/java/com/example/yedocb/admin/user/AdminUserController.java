@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class AdminUserController {
     private final AdminUserService adminUserService;
 
-    @GetMapping("s")
+    @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(adminUserService.getAllUsers());
     }
@@ -32,7 +32,7 @@ public class AdminUserController {
     }
 
     @PostMapping("/{uId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String uId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("uId") String uId) {
         adminUserService.deleteUser(uId);
         return ResponseEntity.ok().build();
     }

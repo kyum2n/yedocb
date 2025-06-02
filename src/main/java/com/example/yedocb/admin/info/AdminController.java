@@ -1,7 +1,9 @@
 package com.example.yedocb.admin.info;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,19 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.yedocb.admin.entity.Admin;
-import com.example.yedocb.admin.info.AdminService;
 
 
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
 	
-	// 필드 및 생성자 주입
-	private final AdminService adminService;
-	
-	public AdminController(AdminService adminService) {
-		this.adminService = adminService;
-	}
+
+	 private final AdminService adminService;
+
+	    public AdminController(@Qualifier("adminServiceImpl") AdminService adminService) {
+	        this.adminService = adminService;
+	    }
 	
 	// 관리자 등록
 	@PostMapping
@@ -33,9 +34,15 @@ public class AdminController {
 	
 	// 관리자 삭제
 	@PostMapping("/{aId}")
-	public ResponseEntity<String> deleteAdmin(@PathVariable String aId) {
+	public ResponseEntity<String> deleteAdminViaPost(@PathVariable String aId) {
 		adminService.deleteStaff(aId);
 		return ResponseEntity.ok("관리자 삭제 완료!");
+	}
+	
+	@DeleteMapping("/delete")
+	public ResponseEntity<String> deleteAdmin(@RequestParam String aid) {
+	    adminService.deleteStaff(aid);
+	    return ResponseEntity.ok("관리자 삭제 완료");
 	}
 	
 	// 관리자 아이디 찾기

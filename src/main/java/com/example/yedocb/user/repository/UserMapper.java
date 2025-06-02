@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
+	
 	List<User> selectAllUsers();
 
 	// 로그인용 ID, 비밀번호 확인

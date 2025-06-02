@@ -21,13 +21,13 @@ import lombok.RequiredArgsConstructor;
 public class AdminReserveController {
     private final AdminReserveService adminReserveService;
 
-    @GetMapping("/s")
+    @GetMapping("/reserves")
     public ResponseEntity<List<Reservation>> getAllReservations() {
         return ResponseEntity.ok(adminReserveService.getAllReservations());
     }
 
     @PostMapping("/{rId}/status")
-    public ResponseEntity<String> changeStatus(@PathVariable int rId, @RequestParam String status) {
+    public ResponseEntity<String> changeStatus(@PathVariable("rId") int rId, @RequestBody String status) {
         adminReserveService.updateReservationStatus(rId, status);
         return ResponseEntity.ok("상태 변경 완료");
     }
@@ -39,14 +39,14 @@ public class AdminReserveController {
     }
 
     @PostMapping("/{rId}")
-    public ResponseEntity<Reservation> updateSchedule(@PathVariable int rId, @RequestBody Reservation reservation) {
+    public ResponseEntity<Reservation> updateSchedule(@PathVariable("rId") int rId, @RequestBody Reservation reservation) {
         reservation.setRId(rId);
         adminReserveService.modifyReservationSchedule(reservation);
         return ResponseEntity.ok(reservation);
     }
 
     @PostMapping("/delete/{rId}")
-    public ResponseEntity<Void> deleteSchedule(@PathVariable int rId) {
+    public ResponseEntity<Void> deleteSchedule(@PathVariable("rId") int rId) {
         adminReserveService.deleteReservation(rId);
         return ResponseEntity.ok().build();
     }

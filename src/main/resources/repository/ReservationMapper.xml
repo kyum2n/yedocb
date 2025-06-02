@@ -20,7 +20,7 @@
         WHERE rId = #{rId}
     </update>
 
-    <delete id="deleteReservation">
+    <delete id="deleteReservation" parameterType="int"> 
         DELETE FROM reservations WHERE rId = #{rId}
     </delete>
 
@@ -32,9 +32,11 @@
         SELECT * FROM reservations WHERE consultDate = #{consultDate}
     </select>
 
-    <update id="updateStatus">
-        UPDATE reservations SET status = #{status} WHERE rId = #{rId}
-    </update>
+    <update id="updateStatus" parameterType="map">
+	    UPDATE reservations
+	    SET status = #{status}
+	    WHERE rId = #{rId}
+	</update>
     
     <select id="selectByDateTime" resultType="Reservation">
 		SELECT * FROM reservations
