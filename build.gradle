@@ -37,6 +37,14 @@ dependencies {
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	
+	// Spring Security (시큐리티 인증 / 인가)
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// JWT (토큰 발급 / 검증용)
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+	
 }
 
 tasks.named('test') {

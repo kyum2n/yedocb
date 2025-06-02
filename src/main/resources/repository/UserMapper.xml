@@ -49,5 +49,11 @@
     	SELECT * FROM users
 	</select>
 
+	<!-- 임시 비밀번호 -->	
+	<update id="updatePassword" parameterType="map">
+    	UPDATE users
+    	SET uPwd = #{pwd}
+    	WHERE uId = #{uId}
+	</update>
 
 </mapper>
