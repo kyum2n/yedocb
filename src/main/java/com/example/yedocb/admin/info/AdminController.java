@@ -34,7 +34,7 @@ public class AdminController {
 	
 	// 관리자 삭제
 	@PostMapping("/{aId}")
-	public ResponseEntity<String> deleteAdminViaPost(@PathVariable String aId) {
+	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aId) {
 		adminService.deleteStaff(aId);
 		return ResponseEntity.ok("관리자 삭제 완료!");
 	}
