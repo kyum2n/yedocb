@@ -48,4 +48,5 @@ public class AdminLoginController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패");
         }
 	}
+
 }

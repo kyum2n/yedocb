@@ -15,11 +15,11 @@ public interface ReservationMapper {
     int insertReservation(Reservation reservation);
     List<Reservation> selectByUserId(String uId);
     int updateReservation(Reservation reservation);
-    int deleteReservation(int rId);
+    int deleteReservation(@Param("rId") int rId);
     List<Reservation> selectAllReservation();
     List<Reservation> selectByDate(Date consultDate);
     List<Reservation> selectByDateTime(@Param("consultDate") Date consultDate,
             						   @Param("consultTime") LocalTime consultTime);
-    int updateStatus(int rId, String status);
+    int updateStatus(@Param("rId") int rId, @Param("status") String status);
 
 }

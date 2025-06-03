@@ -17,15 +17,13 @@ import com.example.yedocb.admin.repository.AdminMapper;
  * 
  */
 
-@Service
-public class AdminLoginServiceImpl implements AdminLoginService{
-	
-	// 필드 및 생성자 주입
-	private AdminMapper adminMapper;
-	
-	public AdminLoginServiceImpl(AdminMapper adminMapper) {
-		this.adminMapper = adminMapper;
-	}
+@Service("adminLoginServiceImpl")  // 빈 이름 명시
+public class AdminLoginServiceImpl implements AdminLoginService {
+    private final AdminMapper adminMapper;
+
+    public AdminLoginServiceImpl(AdminMapper adminMapper) {
+        this.adminMapper = adminMapper;
+    }
 
 	// 관리자 로그인
 	@Override

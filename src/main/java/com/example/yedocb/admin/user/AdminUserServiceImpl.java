@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AdminUserServiceImpl implements AdminUserService {
+	
     private final UserMapper userMapper;
 
     @Override

@@ -1,11 +1,11 @@
 package com.example.yedocb.admin.info;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.internet.MimeMessage;
-
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 
 /**
  * packageName    : com.exmple.yedocb.admin.info
@@ -24,6 +24,7 @@ public class AdminEmailService {
 	// 필드 및 생성자 주입
 	private JavaMailSender mailSender;
 	
+	@Autowired
 	public AdminEmailService(JavaMailSender mailSender) {
 		this.mailSender = mailSender;
 	}
