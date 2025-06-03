@@ -1,11 +1,14 @@
 package com.example.yedocb.user.reservation;
 
+import com.example.yedocb.jwt.JwtTokenProvider;
 import com.example.yedocb.reservation.entity.Reservation;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalTime;
 import java.util.Date;
@@ -17,32 +20,85 @@ import java.util.List;
 public class UserReservationController {
 
     private final UserReservationService userReservationService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     // 상담 예약 등록
     @PostMapping
-    public ResponseEntity<String> registerReservation(@RequestBody Reservation reservation) {
+    public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation,
+    		 										  @RequestHeader("Authorization") String token) {
+    	
+        // JWT에서 로그인한 사용자 uId 추출
+        String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+        
+        // Reservation 객체의 uId를 강제로 로그인한 사용자로 설정
+        reservation.setUId(userIdFromToken);
+        
+        // 예약 등록
         userReservationService.makeReservation(reservation);
-        return ResponseEntity.ok("예약이 등록되었습니다.");
+        return ResponseEntity.ok(reservation);
     }
 
     // 예약 내역 조회 (사용자별) - 설계서 기준 PathVariable
     @GetMapping("/{uId}")
-    public ResponseEntity<List<Reservation>> getUserReservations(@PathVariable("uId") String uId) {
+    public ResponseEntity<List<Reservation>> getUserReservations(
+    		@PathVariable("uId") String uId, 
+    		@RequestHeader("Authorization") String token) {
+    	
+        // JWT 에서 로그인한 사용자 uId 추출
+    	String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+    	
+        // 본인 확인
+        if (!uId.equals(userIdFromToken)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "본인 예약만 조회할 수 있습니다.");
+        }
+        
+        // 본인 예약 조회
         return ResponseEntity.ok(userReservationService.getMyReservations(uId));
     }
 
     // 예약 수정
     @PostMapping("/{rId}/update")  // 설계서 기준 POST 방식 사용
-    public ResponseEntity<String> updateReservation(@PathVariable("rId") int rId, @RequestBody Reservation reservation) {
-        reservation.setRId(rId); // rId 주입
+    public ResponseEntity<Reservation> updateReservation(
+            @PathVariable("rId") int rId,
+            @RequestBody Reservation reservation,
+            @RequestHeader("Authorization") String token) {
+
+        reservation.setRId(rId);
+
+        String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+
+        // 본인 예약인지 체크
+        Reservation existing = userReservationService.getMyReservations(userIdFromToken)
+                .stream()
+                .filter(r -> r.getRId() == rId)
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.FORBIDDEN, "본인 예약만 수정할 수 있습니다."));
+
+        // 본인 예약이면 업데이트 호출
         userReservationService.updateReservation(reservation);
-        return ResponseEntity.ok("예약이 수정되었습니다.");
+
+        return ResponseEntity.ok(reservation);
     }
 
     // 예약 취소
     @PostMapping("/{rId}/cancel")
-    public ResponseEntity<String> cancelReservation(@PathVariable("rId") int rId) {
+    public ResponseEntity<String> cancelReservation(
+            @PathVariable("rId") int rId,
+            @RequestHeader("Authorization") String token) {
+
+        // JWT에서 로그인한 사용자 uId 추출
+        String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+
+        // 본인 예약인지 체크
+        Reservation existing = userReservationService.getMyReservations(userIdFromToken)
+                .stream()
+                .filter(r -> r.getRId() == rId)
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.FORBIDDEN, "본인 예약만 취소할 수 있습니다."));
+
+        // 본인 예약이면 취소
         userReservationService.cancelReservation(rId);
+
         return ResponseEntity.ok("예약이 취소되었습니다.");
     }
     
