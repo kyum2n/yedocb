@@ -31,7 +31,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'yedoc-docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
-                        docker login -u $DOCKER_USER -p $DOCKER_PASS
+                        docker login https://index.docker.io/v1/ -u $DOCKER_USER -p $DOCKER_PASS
                         docker build -t kyumni/yedoc-backend .
                         docker push kyumni/yedoc-backend
                     '''
