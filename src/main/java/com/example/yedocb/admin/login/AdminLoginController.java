@@ -33,14 +33,14 @@ public class AdminLoginController {
 	// 관리자 로그인
 	@PostMapping("/login")
 	public ResponseEntity<String> loginAdmin(@RequestBody Admin loginRequest) {
-		boolean success = adminLoginService.loginAdmin(loginRequest.getAId(), loginRequest.getAPwd());
+		Admin admin = adminLoginService.loginAdmin(loginRequest.getAId(), loginRequest.getAPwd());
 		
-        if (success) {
-            // 여기서 Role 은 임시로 "ADMIN"
-            List<String> roles = List.of("ADMIN");
+        if (admin != null) {
+            // DB에서 가져온 관리자 role
+            List<String> roles = List.of(admin.getRole());
 
             // JWT 발급
-            String token = jwtTokenProvider.createToken(loginRequest.getAId(), roles);
+            String token = jwtTokenProvider.createToken(admin.getAId(), roles);
 
             // JWT 토큰 반환
             return ResponseEntity.ok(token);

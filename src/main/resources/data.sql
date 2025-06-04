@@ -1,6 +1,6 @@
 
 INSERT INTO admin (aId, aEmail, aPwd, role, createdBy)
-VALUES ('super', 'superadmin@naver.com', '$2a$10$uqAJJtoClySC3dE6r0NqF.HKFZCtTpap/rbNI3kEF/fq76cr2.5uG', 'super', NULL);
+VALUES ('super', 'superadmin@naver.com', '$2a$10$uqAJJtoClySC3dE6r0NqF.HKFZCtTpap/rbNI3kEF/fq76cr2.5uG', 'SUPERADMIN', NULL);
 -- 암호 : super1234
 
 INSERT INTO users (uId, uName, uEmail, uPwd, uPhone)

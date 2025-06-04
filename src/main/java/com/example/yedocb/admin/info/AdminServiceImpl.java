@@ -1,5 +1,6 @@
 package com.example.yedocb.admin.info;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.yedocb.admin.entity.Admin;
@@ -20,17 +21,20 @@ import com.example.yedocb.admin.repository.AdminMapper;
 @Service("adminServiceImpl")
 public class AdminServiceImpl implements AdminService {
 
+	// 필드 및 생성자 주입
     private final AdminMapper adminMapper;
     private final AdminEmailService adminEmailService;
+    private final PasswordEncoder passwordEncoder;
 
-    // 생성자 주입 (직접 명시!)
-    public AdminServiceImpl(AdminMapper adminMapper, AdminEmailService adminEmailService) {
+    public AdminServiceImpl(AdminMapper adminMapper, AdminEmailService adminEmailService, PasswordEncoder passwordEncoder) {
         this.adminMapper = adminMapper;
         this.adminEmailService = adminEmailService;
+        this.passwordEncoder = passwordEncoder;
     }
-
+    
     @Override
     public void registerStaff(Admin admin) {
+    	admin.setAPwd(passwordEncoder.encode(admin.getAPwd())); // 암호화
         adminMapper.insertAdmin(admin);
     }
 

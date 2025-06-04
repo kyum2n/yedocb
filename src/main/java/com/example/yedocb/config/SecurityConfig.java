@@ -53,7 +53,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/**").hasRole("USER")
 
                         // Admin 권한
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
 
                         // SuperAdmin 권한
                         .requestMatchers("/api/superadmin/**").hasRole("SUPERADMIN")
