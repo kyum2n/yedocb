@@ -18,12 +18,12 @@ import com.example.yedocb.admin.entity.Admin;
 @RequestMapping("/api/admin")
 public class AdminController {
 	
-
+	// 필드 및 생성자 주입
 	 private final AdminService adminService;
 
-	    public AdminController(@Qualifier("adminServiceImpl") AdminService adminService) {
-	        this.adminService = adminService;
-	    }
+	 public AdminController(@Qualifier("adminServiceImpl") AdminService adminService) {
+		 this.adminService = adminService;
+	 }
 	
 	// 관리자 등록
 	@PostMapping
@@ -33,14 +33,8 @@ public class AdminController {
 	}
 	
 	// 관리자 삭제
-	@PostMapping("/{aId}")
-	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aId) {
-		adminService.deleteStaff(aId);
-		return ResponseEntity.ok("관리자 삭제 완료!");
-	}
-	
-	@DeleteMapping("/delete")
-	public ResponseEntity<String> deleteAdmin(@RequestParam String aid) {
+	@DeleteMapping("/{aId}")
+	public ResponseEntity<String> deleteAdmin(@RequestParam("aId") String aid) {
 	    adminService.deleteStaff(aid);
 	    return ResponseEntity.ok("관리자 삭제 완료");
 	}
