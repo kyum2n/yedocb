@@ -102,6 +102,23 @@ public class UserReservationController {
         return ResponseEntity.ok("예약이 취소되었습니다.");
     }
     
+ // 특정 날짜에 이미 예약된 시간 목록 반환
+    @GetMapping("/disabled-times")
+    public ResponseEntity<List<String>> getDisabledTimes(
+        @RequestParam("consultDate")
+        @DateTimeFormat(pattern = "yyyy-MM-dd") Date consultDate) {
+
+        List<LocalTime> reservedTimes = userReservationService.getReservedTimesByDate(consultDate);
+
+        // 프론트에서 쓰기 쉽게 HH:mm 문자열로 변환
+        List<String> disabled = reservedTimes.stream()
+            .map(time -> time.toString().substring(0, 5)) // "14:30:00" → "14:30"
+            .toList();
+
+        return ResponseEntity.ok(disabled);
+    }
+    
+    
     // 예약 가능 시간 조회 (나중에 추가해야함)
     @GetMapping("/check")
     public ResponseEntity<Boolean> checkAvailable(
