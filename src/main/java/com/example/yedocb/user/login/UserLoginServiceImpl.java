@@ -28,15 +28,13 @@ public class UserLoginServiceImpl implements UserLoginService{
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public boolean login(String uId, String uPwd) {
-        // 비밀번호 없이 사용자 조회
+    public User login(String uId, String uPwd) {
         User user = userMapper.selectByUId(uId);
 
-        // 사용자 존재하고 비밀번호 일치하면 true
         if (user != null && passwordEncoder.matches(uPwd, user.getUPwd())) {
-            return true;
+            return user; // 성공 시 User 객체 반환
         }
 
-        return false;
+        return null; // 실패 시 null
     }
 }
