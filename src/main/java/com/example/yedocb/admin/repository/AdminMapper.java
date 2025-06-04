@@ -22,7 +22,7 @@ public interface AdminMapper {
 	Admin selectByAId(String aId);
 	
 	// 관리자 로그인
-	Admin loginAdmin(@Param("aId") String aId, @Param("aPwd") String aPwd);
+	Admin loginAdmin(@Param("aId") String aId);
 	
 	// 관리자 이메일로 관리자 아이디 찾기
 	String findAdminId(String aEmail);
