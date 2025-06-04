@@ -1,5 +1,7 @@
 package com.example.yedocb.user.login;
 
+import com.example.yedocb.user.entity.User;
+
 public interface UserLoginService {
-    boolean login(String uId, String uPwd);
+    User login(String uId, String uPwd);
 }

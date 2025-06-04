@@ -2,6 +2,9 @@ package com.example.yedocb.config;
 
 import com.example.yedocb.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,8 +39,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                // CSRF 비활성화 (JWT 기반에서는 필요 없음)
+        		
+                // CSRF 비활성화 (JWT 기반에서는 필요 없음 -> StateLess 방식이니)
                 .csrf(csrf -> csrf.disable())
+                
+                // CORS 설정 적용 (React 프론트엔드에서 API 호출 시 Cross-Origin 허용 처리)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                
                 // 세션 사용하지 않음 (JWT 방식은 Stateless)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // 경로별 권한 설정
@@ -49,13 +57,14 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/register").permitAll() // 사용자 회원가입
                         .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
                         
-                        // User 권한(전체)
+
+                        // User, Admin, SuperAdmin 권한
                         .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                         
-                        // reserve 권한(전체)
+                        // User, Admin, SuperAdmin 예약 권한
                         .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                        
-                        // Admin 권한
+
+                        // Admin, SuperAdmin 권한
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
 
                         // SuperAdmin 권한
@@ -68,10 +77,38 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+    
+    // CORS(Cross-Origin Resource Sharing) 설정 Bean 등록
+    // React (http://localhost:3000) 에서 API 요청 시 브라우저 CORS 정책 우회 허용
+    @Bean
+    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
+    	
+    	// CORS 설정 객체 생성
+    	org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
+    	
+    	// 허용할 Origin (프론트엔드 개발 서버 주소)
+    	configuration.setAllowedOrigins(List.of("http://localhost:3000")); // React 개발용 Origin 허용
+    	
+    	// 허용할 HTTP 메서드 (GET, POST 등 여러가지)
+    	configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    	
+    	// 허용할 요청 헤더 (Authorization, Content-Type 등)
+    	configuration.setAllowedHeaders(List.of("*")); // 모든 헤더 허용
+    	
+    	// 클라이언트 측에서 인증 정보(쿠키, Authorization 헤더 등)를 포함한 요청 허용 여부
+    	configuration.setAllowCredentials(true); // 인증정보(토큰) 허용
+    	
+    	// URL 패턴별 CORS 설정 등록 (/** → 모든 경로에 적용)
+    	org.springframework.web.cors.UrlBasedCorsConfigurationSource source = new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
+    	source.registerCorsConfiguration("/**", configuration);
+    	
+    	return source;
+    } // 필요 사유 : 브라우저가 CORS 때문에 다른 포트 호출 못하게 막아서 이 설정을 통해 React 개발 서버에서 정상 호출 가능해짐
 
     // AuthenticationManager Bean 등록 / (CustomUserDetailsService 를 사용한 인증 처리를 위해 필요)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+    
 }

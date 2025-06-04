@@ -41,6 +41,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
     	
+        String uri = request.getRequestURI();
+
+        // 인증 없이 허용된 경로는 바로 다음 필터로 넘김
+        if (uri.equals("/api/user/register") ||
+            uri.equals("/api/user/login") ||
+            uri.equals("/api/user/find_id") ||
+            uri.equals("/api/user/find_password") ||
+            uri.equals("/api/admin/login") ||
+            uri.equals("/api/hello")) {
+
+            filterChain.doFilter(request, response);
+            return;
+        }
+    	
     	// Authorization(인증) 헤더에서 JWT 토큰 추출함
         String token = resolveToken(request);
 

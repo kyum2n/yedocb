@@ -40,7 +40,7 @@ public class UserReservationController {
 
     // 예약 내역 조회 (사용자별) - 설계서 기준 PathVariable
     @GetMapping("/{uId}")
-    public ResponseEntity<List<Reservation>> getUserReservations(
+    public ResponseEntity<List<Reservation>> getReservations(
     		@PathVariable("uId") String uId, 
     		@RequestHeader("Authorization") String token) {
     	
