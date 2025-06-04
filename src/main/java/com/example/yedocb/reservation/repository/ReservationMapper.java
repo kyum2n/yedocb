@@ -21,5 +21,6 @@ public interface ReservationMapper {
     List<Reservation> selectByDateTime(@Param("consultDate") Date consultDate,
             						   @Param("consultTime") LocalTime consultTime);
     int updateStatus(@Param("rId") int rId, @Param("status") String status);
+    List<LocalTime> selectTimesByDate(Date consultDate);
 
 }

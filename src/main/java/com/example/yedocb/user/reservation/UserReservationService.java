@@ -15,11 +15,15 @@ public interface UserReservationService {
     // 사용자 예약 목록 조회
     List<Reservation> getMyReservations(String uId);
     
+    // 날짜별 예약된 시간 조회
+    List<LocalTime> getReservedTimesByDate(Date consultDate);
+    
     // 예약 수정
     void updateReservation(Reservation reservation);
     
     // 예약 취소
     void cancelReservation(int rId);
     
+    //해당 날짜의 비어있는 시간 조회
     boolean isAvailableTime(Date consultDate, LocalTime consultTime);
 }
