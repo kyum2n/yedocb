@@ -49,9 +49,12 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/register").permitAll() // 사용자 회원가입
                         .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
                         
-                        // User 권한
-                        .requestMatchers("/api/user/**").hasRole("USER")
-
+                        // User 권한(전체)
+                        .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                        
+                        // reserve 권한(전체)
+                        .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                        
                         // Admin 권한
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
 
