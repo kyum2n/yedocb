@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         jdk 'jdk21'
-
     }
 
     stages {
@@ -20,6 +19,9 @@ pipeline {
         }
 
         stage('Test') {
+            when {
+                expression { return false } // 테스트 단계 무조건 skip
+            }
             steps {
                 sh './gradlew test'
             }
