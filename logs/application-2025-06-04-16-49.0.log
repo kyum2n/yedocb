@@ -1,0 +1,11 @@
+2025-06-04 16:49:55.937  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.yedocb.YedocbApplicationTests]: YedocbApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration. 
+2025-06-04 16:49:56.021  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.yedocb.YedocbApplication for test class com.example.yedocb.YedocbApplicationTests 
+2025-06-04 16:49:56.248  o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.2.Final 
+2025-06-04 16:49:56.273  c.e.y.YedocbApplicationTests - Starting YedocbApplicationTests using Java 21.0.6 with PID 21668 (started by YONSAI in D:\ysg\yedocb) 
+2025-06-04 16:49:56.274  c.e.y.YedocbApplicationTests - No active profile set, falling back to 1 default profile: "default" 
+2025-06-04 16:49:57.104  c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2025-06-04 16:49:57.244  c.z.h.p.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67763ebe 
+2025-06-04 16:49:57.245  c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2025-06-04 16:49:57.961  c.e.y.YedocbApplicationTests - Started YedocbApplicationTests in 1.844 seconds (process running for 2.71) 
+2025-06-04 16:49:58.476  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2025-06-04 16:49:58.477  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
