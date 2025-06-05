@@ -34,4 +34,7 @@ public interface UserMapper {
 
     // 임시 비밀번호로 업데이트
     int updatePassword(@Param("uId") String uId, @Param("pwd") String pwd);
+    
+    // 마이페이지 정보
+    User selectUserInfoForMypage(String uId);
 }
