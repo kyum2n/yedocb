@@ -36,6 +36,7 @@ public class AdminController {
 	@PostMapping
 	public ResponseEntity<String> createAdmin(@RequestBody Admin admin, @RequestHeader("Authorization") String authHeader) {
 		
+		// 요청 헤더에서 JWT 토큰 추출
 		String token = authHeader.replace("Bearer", ""); 
 		
 		// JWT에서 역할 추출
@@ -53,7 +54,20 @@ public class AdminController {
 	
 	// 관리자 삭제
 	@DeleteMapping("/{aId}")
-	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aid) {
+	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aid, @RequestHeader("Authorization") String authHeader) {
+		
+		// 요청 헤더에서 JWT 토큰 추출
+		String token = authHeader.replace("Bearer", "").trim(); 
+		
+		// JWT에서 역할 추출
+		List<String> roles = jwtTokenProvider.getRoles(token);
+		
+		// 최고관리자만 허용
+		if(roles == null || !roles.contains("SUPERADMIN")) {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("최고 관리자만 삭제 가능");
+		}
+		
+		System.out.println("삭제 대상 관리자: " + aid);
 	    adminService.deleteStaff(aid);
 	    return ResponseEntity.ok("관리자 삭제 완료");
 	}

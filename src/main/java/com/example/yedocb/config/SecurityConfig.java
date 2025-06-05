@@ -89,32 +89,6 @@ public class SecurityConfig {
                 .build();
     }
     
-    // CORS(Cross-Origin Resource Sharing) 설정 Bean 등록
-    // React (http://localhost:3000) 에서 API 요청 시 브라우저 CORS 정책 우회 허용
-    @Bean
-    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
-    	
-    	// CORS 설정 객체 생성
-    	org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
-    	
-    	// 허용할 Origin (프론트엔드 개발 서버 주소)
-    	configuration.setAllowedOrigins(List.of("http://localhost:3000")); // React 개발용 Origin 허용
-    	
-    	// 허용할 HTTP 메서드 (GET, POST 등 여러가지)
-    	configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-    	
-    	// 허용할 요청 헤더 (Authorization, Content-Type 등)
-    	configuration.setAllowedHeaders(List.of("*")); // 모든 헤더 허용
-    	
-    	// 클라이언트 측에서 인증 정보(쿠키, Authorization 헤더 등)를 포함한 요청 허용 여부
-    	configuration.setAllowCredentials(true); // 인증정보(토큰) 허용
-    	
-    	// URL 패턴별 CORS 설정 등록 (/** → 모든 경로에 적용)
-    	org.springframework.web.cors.UrlBasedCorsConfigurationSource source = new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
-    	source.registerCorsConfiguration("/**", configuration);
-    	
-    	return source;
-    } // 필요 사유 : 브라우저가 CORS 때문에 다른 포트 호출 못하게 막아서 이 설정을 통해 React 개발 서버에서 정상 호출 가능해짐
 
     // AuthenticationManager Bean 등록 / (CustomUserDetailsService 를 사용한 인증 처리를 위해 필요)
     @Bean

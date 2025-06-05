@@ -37,7 +37,9 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 		
 		Admin admin = adminMapper.loginAdmin(aId);
 		
-		if (admin != null && passwordEncoder.matches(aPwd, admin.getAPwd())) {
+		if (admin != null 
+				&& passwordEncoder.matches(aPwd, admin.getAPwd())
+				&& (admin.getRole().equals("SUPERADMIN")) || admin.getRole().equals("ADMIN")){
             return admin; // 로그인 성공
         }
 		
