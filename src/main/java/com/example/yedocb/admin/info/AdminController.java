@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +33,23 @@ public class AdminController {
 		 this.adminService = adminService;
 		 this.jwtTokenProvider = jwtTokenProvider;
 	 }
+	 
+	// 모든 관리자 목록 조회
+	@GetMapping
+	public ResponseEntity<List<Admin>> getAllAdmins(@RequestHeader("Authorization") String authHeader){
+		
+		// 요청 헤더에서 JWT 토큰 추출
+		String token = authHeader.replace("Bearer", "").trim();
+		List<String> roles = jwtTokenProvider.getRoles(token);
+		
+		// 최고관리자만 허용
+		if(roles == null || !roles.contains("SUPERADMIN")) {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+		}
+		
+		List<Admin> adminList = adminService.getAllAdmins();
+		return ResponseEntity.ok(adminList);
+	}
 	
 	// 관리자 등록
 	@PostMapping

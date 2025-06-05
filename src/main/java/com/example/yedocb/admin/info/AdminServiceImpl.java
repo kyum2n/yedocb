@@ -1,5 +1,7 @@
 package com.example.yedocb.admin.info;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,11 @@ public class AdminServiceImpl implements AdminService {
         this.adminMapper = adminMapper;
         this.adminEmailService = adminEmailService;
         this.passwordEncoder = passwordEncoder;
+    }
+    
+    @Override
+    public List<Admin> getAllAdmins(){
+    	return adminMapper.selectAllAdmins();
     }
     
     @Override
