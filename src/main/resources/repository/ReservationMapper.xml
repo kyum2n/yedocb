@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        
+
 <mapper namespace="com.example.yedocb.reservation.repository.ReservationMapper">
 
     <insert id="insertReservation" parameterType="Reservation">
@@ -36,11 +36,17 @@
 	    UPDATE reservations
 	    SET status = #{status}
 	    WHERE rId = #{rId}
-	</update>
-    
+    </update>
+
     <select id="selectByDateTime" resultType="Reservation">
 		SELECT * FROM reservations
 		WHERE consultdate = #{consultDate} AND consulttime = #{consultTime}
-	</select>
+    </select>
+
+    <select id="selectTimesByDate" resultType="java.time.LocalTime">
+        SELECT consulttime
+        FROM reservations
+        WHERE consultdate = #{consultDate}
+    </select>
 
 </mapper>

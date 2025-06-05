@@ -80,4 +80,9 @@ public class UserReservationServiceImpl implements UserReservationService {
     List<Reservation> list = reservationMapper.selectByDateTime(consultDate, consultTime);
     return list.isEmpty(); // 예약 없으면 가능함
     }
+    
+    @Override
+    public List<LocalTime> getReservedTimesByDate(Date consultDate) {
+        return reservationMapper.selectTimesByDate(consultDate);
+    }
 }
