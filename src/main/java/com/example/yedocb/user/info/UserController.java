@@ -84,7 +84,7 @@ public class UserController {
     }
     
     // 회원 탈퇴 : uId 기준으로 사용자 정보 삭제
-    @PostMapping("/{uId}") 
+    @PostMapping("/Delete/{uId}") 
     public ResponseEntity<String> deleteUser(@PathVariable("uId") String uId, 
     										 @RequestHeader("Authorization") String token) {
     	
@@ -132,4 +132,32 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 정보로 사용자를 찾을 수 없습니다.");
         }
     }
+    
+    @GetMapping("/myinfo")
+    public ResponseEntity<User> getMyInfo(@RequestHeader("Authorization") String token){
+    	
+    	//JWT에서 uId 추출
+    	String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+    	
+    	// uId로 DB 조회
+    	User user = userService.getUserInfoForMypage(userIdFromToken);
+    	
+    	if (user == null) {
+    		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "사용자 정보를 찾을 수 없습니다.");
+    	}
+    	
+    	return ResponseEntity.ok(user);
+    }
+    	
+    @GetMapping("/{uId}")
+    public ResponseEntity<String> verifyUser(@PathVariable("uId") String uId,
+            @RequestHeader("Authorization") String token) {
+    	String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
+
+    	if (!uId.equals(userIdFromToken)) {
+    		throw new ResponseStatusException(HttpStatus.FORBIDDEN, "토큰 사용자와 요청한 ID가 일치하지 않습니다.");
+    	}
+
+    	return ResponseEntity.ok("사용자 인증 성공");
+    	}
 }

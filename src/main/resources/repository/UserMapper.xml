@@ -9,8 +9,10 @@
     <update id="updateUserPhonePwd" parameterType="map">
         UPDATE users
         <set>
-            <if test="phone != null"> uPhone = #{phone}, </if>
-            <if test="pwd != null"> uPwd = #{pwd} </if>
+        	<trim suffixOverrides=",">
+            	<if test="phone != null"> uPhone = #{phone}, </if>
+            	<if test="pwd != null"> uPwd = #{pwd} </if>
+            </trim>
         </set>
         WHERE uId = #{uId}
     </update>
@@ -47,5 +49,9 @@
     	SET uPwd = #{pwd}
     	WHERE uId = #{uId}
 	</update>
+	
+	<select id="selectUserInfoForMypage" parameterType="string" resultType="com.example.yedocb.user.entity.User">
+   		SELECT uId, uName, uEmail, uPhone FROM users WHERE uId = #{uId}
+	</select>
 
 </mapper>

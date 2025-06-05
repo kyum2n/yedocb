@@ -111,4 +111,8 @@ public class UserServiceImpl implements UserService {
         return null;
     }
     
+    @Override
+    public User getUserInfoForMypage(String uId) {
+    	return userMapper.selectUserInfoForMypage(uId);
+    }
 }

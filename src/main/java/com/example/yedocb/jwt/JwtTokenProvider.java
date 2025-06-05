@@ -27,6 +27,9 @@ import java.util.List;
 
 @Component // 스프링 빈으로 등록 (다른 클래스에서 주입받아 사용 가능)
 public class JwtTokenProvider {
+	
+	@Value("${jwt.refresh-expiration}")
+	private long refreshTokenValidTime; // 긴 유효기간 설정
 
     private SecretKey secretKey; // JWT 서명에 사용할 비밀 키 (HMAC-SHA256 알고리즘에 사용)
 
@@ -100,4 +103,20 @@ public class JwtTokenProvider {
             return false;
         }
     }
+    
+	 // Refresh Token 생성 메서드
+	 // - AccessToken과 별도로 발급
+	 // - "인증 요청(API 호출 시)"에 사용하면 안됨 (RefreshToken은 재발급용임)
+	 // - 보통 DB 또는 Redis 등에 저장 후 관리
+	 public String createRefreshToken(String userId) {
+	     Date now = new Date();
+	     Date validity = new Date(now.getTime() + refreshTokenValidTime); // 설정에서 셋팅함
+	
+	     return Jwts.builder()
+	             .setSubject(userId) // 사용자 ID 설정 (sub)
+	             .setIssuedAt(now)   // 발급 시간
+	             .setExpiration(validity) // 만료 시간
+	             .signWith(secretKey, SignatureAlgorithm.HS256)
+	             .compact();
+ }
 }
