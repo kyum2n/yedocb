@@ -19,8 +19,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.List;
-
 /**
  * packageName    : com.example.yedocb.config
  * fileName       : SecurityConfig
@@ -46,8 +44,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
 
-        		// CORS 활성화 (아래 corsConfigurationSource()와 연결됨)
-        		.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+              // CORS 활성화 (아래 corsConfigurationSource()와 연결됨)
+              .cors(cors -> cors.configurationSource(corsConfigurationSource()))
           
                 // CSRF 비활성화 (JWT 기반에서는 필요 없음)
                 .csrf(csrf -> csrf.disable())
@@ -64,10 +62,6 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
 
                         .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()// 예약확인용
-                        
-                        // User 권한
-                        .requestMatchers("/api/user/**").hasRole("USER")
-                        .requestMatchers("/api/reserve/**").hasRole("USER")
 
                         // User, Admin, SuperAdmin 권한
                         .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")

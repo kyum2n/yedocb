@@ -32,23 +32,16 @@ public class UserReservationServiceImpl implements UserReservationService {
     private final ReservationMapper reservationMapper;
     private final EmailService emailService;
 
-    // 예약 등록 (상태 : 대기)
+    // 예약 등록
     @Override
     public void makeReservation(Reservation reservation) {
         // 이미 같은 날짜+시간에 예약이 있는지 검사
-        boolean available = isAvailableTime(reservation.getConsultDate(), reservation.getConsultTime());
+    	boolean available = isAvailableTime(reservation.getConsultDate(), reservation.getConsultTime());
+
 
         if (!available) {
-            LocalTime now = LocalTime.now();
-            if (reservation.getConsultTime().isBefore(now)) {
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "이미 지난 시간입니다. 다른 시간을 선택해주세요.");
-            } else {
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "이미 예약된 날짜/시간입니다.");
-            }
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "이미 예약된 날짜/시간입니다.");
         }
-
-        // 예약 가능하면 상태 지정 후 등록
-        reservation.setStatus("대기");
         reservationMapper.insertReservation(reservation);
     }
     
