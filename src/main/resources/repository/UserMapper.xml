@@ -5,13 +5,6 @@
         
 <mapper namespace="com.example.yedocb.user.repository.UserMapper">
 
-    <!-- 로그인용 ID, 비밀번호 확인 -->
-    <select id="selectByUIdAndPwd" parameterType="map" resultType="com.example.yedocb.user.entity.User">
-        SELECT * FROM users
-        WHERE uId = #{uId}
-          AND uPwd = #{uPwd}
-    </select>
-
     <!-- 전화번호 또는 비밀번호 수정 -->
     <update id="updateUserPhonePwd" parameterType="map">
         UPDATE users

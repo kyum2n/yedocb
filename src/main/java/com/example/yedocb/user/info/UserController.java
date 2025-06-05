@@ -34,13 +34,21 @@ public class UserController {
         if (!user.getUId().equals(userIdFromToken)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "본인만 수정할 수 있습니다.");
         }
-    	
-        // 직접 phone 형식 검증
-        if (user.getUPhone() == null || !user.getUPhone().matches("^010-\\d{4}-\\d{4}$")) {
-            throw new IllegalArgumentException("전화번호 형식이 올바르지 않습니다.");
+        
+        String rawPhone = user.getUPhone();
+
+        // "-" 제거 (숫자만 남김)
+        String onlyDigitsPhone = rawPhone.replaceAll("[^0-9]", "");
+
+        //  검증
+        if (onlyDigitsPhone == null || !onlyDigitsPhone.matches("^010\\d{8}$")) {
+            throw new IllegalArgumentException("전화번호 형식이 올바르지 않습니다. (예: 01012345678 또는 010-1234-5678)");
         }
 
-        userService.updatePhoneAndPassword(user.getUId(), user.getUPhone(), null);
+        // 변환 -> "010-xxxx-xxxx" 형태
+        String formattedPhone = onlyDigitsPhone.replaceFirst("(010)(\\d{4})(\\d{4})", "$1-$2-$3");
+
+        userService.updatePhoneAndPassword(user.getUId(), formattedPhone, null);
         return ResponseEntity.ok("연락처가 수정되었습니다.");
     }
     
@@ -114,7 +122,7 @@ public class UserController {
     
     // 사용자 비밀번호 찾기 (임시 비밀번호 발급용) : uId 기준으로 임시 비밀번호 발급
     @PostMapping("/find_password")
-    public ResponseEntity<String> resetPassword(@RequestBody Map<String, String> payload) {
+    public ResponseEntity<String> findUserPassword(@RequestBody Map<String, String> payload) {
     	String uId = payload.get("uId");
     	String email = payload.get("email");
     	User user = userService.findUserPassword(uId, email);
