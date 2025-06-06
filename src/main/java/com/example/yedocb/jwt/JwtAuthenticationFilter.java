@@ -64,6 +64,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         	// 토큰에서 사용자 ID (subject)와 roles 추출함
             String userId = jwtTokenProvider.getUserId(token);
             List<String> roles = jwtTokenProvider.getRoles(token);
+            
+            System.out.println("[JwtFilter] 토큰: " + token);
+            System.out.println("[JwtFilter] 권한: " + roles);
+
 
             // Roles 를 Spring Security 가 인식할 수 있는 권한 객체로 변환함
             List<SimpleGrantedAuthority> authorities = roles.stream()

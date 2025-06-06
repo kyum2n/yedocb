@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.yedocb.admin.entity.Admin;
 
 public interface AdminService {
+
 	// 모든 관리자 조회
 	List<Admin> getAllAdmins();
 	

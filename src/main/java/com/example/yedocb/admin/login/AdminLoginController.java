@@ -37,7 +37,7 @@ public class AdminLoginController {
 	// 관리자 로그인
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, Object>> loginAdmin(@RequestBody Admin loginRequest) {
-		
+
 		Admin admin = adminLoginService.loginAdmin(loginRequest.getAId(), loginRequest.getAPwd());
 		System.out.println(passwordEncoder.encode("super1234"));
 		

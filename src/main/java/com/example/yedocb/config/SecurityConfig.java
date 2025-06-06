@@ -61,6 +61,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/register").permitAll() // 사용자 회원가입
                         .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
 
+                        // 예약 불가능한 시간 확인은 모든 권한 가능
                         .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()// 예약확인용
 
                         // User, Admin, SuperAdmin 권한
@@ -69,12 +70,12 @@ public class SecurityConfig {
                         // User, Admin, SuperAdmin 예약 권한
                         .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
 
-                        // Admin, SuperAdmin 권한
-                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        // SuperAdmin 권한 - 직원 목록 등록/삭제/조회
+                        .requestMatchers("/api/admin/staff", "/api/admin/staff/**").hasRole("SUPERADMIN")
 
-                        // SuperAdmin 권한
-                        .requestMatchers("/api/superadmin/**").hasRole("SUPERADMIN")
-                        
+                        // 나머지 관리자 API는 ADMIN 이상
+                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                       
                         // 모든 요청은 인증 필요
                         .anyRequest().authenticated()
                 )
