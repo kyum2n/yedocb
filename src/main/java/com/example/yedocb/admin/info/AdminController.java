@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,17 +33,19 @@ public class AdminController {
 		 this.jwtTokenProvider = jwtTokenProvider;
 	 }
 	 
-	// 모든 관리자 목록 조회
-	@GetMapping
+	// 직원 목록 조회
+	@GetMapping("/staff")
 	public ResponseEntity<List<Admin>> getAllAdmins(@RequestHeader("Authorization") String authHeader){
 		
-		// 요청 헤더에서 JWT 토큰 추출
+		// 요청 헤더에서 JWT 추출
 		String token = authHeader.replace("Bearer", "").trim();
+
+		// JWT에서 역할 추출
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		
 		// 최고관리자만 허용
 		if(roles == null || !roles.contains("SUPERADMIN")) {
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 		}
 		
 		List<Admin> adminList = adminService.getAllAdmins();
@@ -52,16 +53,13 @@ public class AdminController {
 	}
 	
 	// 관리자 등록
-	@PostMapping
+	@PostMapping("/staff")
 	public ResponseEntity<String> createAdmin(@RequestBody Admin admin, @RequestHeader("Authorization") String authHeader) {
 		
-		// 요청 헤더에서 JWT 토큰 추출
 		String token = authHeader.replace("Bearer", ""); 
 		
-		// JWT에서 역할 추출
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		
-		// 최고관리자만 허용
 		if(roles == null || !roles.contains("SUPERADMIN")) {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("최고 관리자만 등록 가능");
 		}
@@ -72,22 +70,19 @@ public class AdminController {
 	}
 	
 	// 관리자 삭제
-	@DeleteMapping("/{aId}")
-	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aid, @RequestHeader("Authorization") String authHeader) {
+	@DeleteMapping("/staff/{aId}")
+	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aId, @RequestHeader("Authorization") String authHeader) {
 		
-		// 요청 헤더에서 JWT 토큰 추출
-		String token = authHeader.replace("Bearer", "").trim(); 
+		String token = authHeader.replace("Bearer", ""); 
 		
-		// JWT에서 역할 추출
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		
-		// 최고관리자만 허용
 		if(roles == null || !roles.contains("SUPERADMIN")) {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("최고 관리자만 삭제 가능");
 		}
 		
-		System.out.println("삭제 대상 관리자: " + aid);
-	    adminService.deleteStaff(aid);
+		System.out.println("삭제 대상 관리자: " + aId);
+	    adminService.deleteStaff(aId);
 	    return ResponseEntity.ok("관리자 삭제 완료");
 	}
 	
