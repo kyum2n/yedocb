@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 
 import com.example.yedocb.jwt.JwtTokenProvider;
 import com.example.yedocb.user.entity.User;
+import com.example.yedocb.user.reservation.EmailService;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
@@ -19,7 +21,8 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserController {
-
+	
+	private final EmailService emailService;
     private final UserService userService;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
@@ -101,7 +104,7 @@ public class UserController {
     // 사용자 아이디 찾기 (아이디 일부 공개요청) : 이메일로 등록된 사용자 아이디 일부 반환
     @PostMapping("/find_id")
     public ResponseEntity<String> findUserId(@RequestBody Map<String, String> payload) {
-        String email = payload.get("email");
+        String email = payload.get("uEmail");
         User user = userService.findUserId(email);
         if (user != null) {
             String uId = user.getUId();
@@ -123,13 +126,20 @@ public class UserController {
     // 사용자 비밀번호 찾기 (임시 비밀번호 발급용) : uId 기준으로 임시 비밀번호 발급
     @PostMapping("/find_password")
     public ResponseEntity<String> findUserPassword(@RequestBody Map<String, String> payload) {
-    	String uId = payload.get("uId");
-    	String email = payload.get("email");
-    	User user = userService.findUserPassword(uId, email);
+        String uId = payload.get("uId");
+
+        // uId로 사용자 조회
+        User user = userService.findUserPassword(uId);
+
         if (user != null) {
-            return ResponseEntity.ok(user.getUPwd()); // 임시 비밀번호 반환
+            String tempPassword = user.getUPwd();
+
+            // 기존 이메일 예약확인 발송 외에 "임시 비밀번호 발송용" 메서드 추가 호출
+            emailService.sendTemporaryPasswordEmail(uId, tempPassword);
+
+            return ResponseEntity.ok("임시 비밀번호가 등록된 이메일로 발송되었습니다.");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 정보로 사용자를 찾을 수 없습니다.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 아이디로 사용자를 찾을 수 없습니다.");
         }
     }
     

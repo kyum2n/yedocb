@@ -92,13 +92,14 @@ public class UserServiceImpl implements UserService {
     // 사용자 ID를 기반으로 임시 비밀번호를 생성하고 DB에 저장하는 메서드
     // 실제 이메일 전송은 별도로 구현 필요
     @Override
-    public User findUserPassword(String uId, String email) {
+    public User findUserPassword(String uId) {
         User user = userMapper.selectByUId(uId); // 기존 사용자 조회
-        if (user != null && user.getUEmail().equals(email)) {
+        if (user != null) {
+        	
+        	// 임시 비밀번호 생성
             String tempPwd = UUID.randomUUID().toString().substring(0, 8);
             
             String encodedTempPwd = passwordEncoder.encode(tempPwd); // 임시 비밀번호 암호화
-            
             userMapper.updatePassword(uId, encodedTempPwd); // 암호화된 비밀번호 업데이트
             
             // DB에서 새 비밀번호 반영된 사용자 다시 조회

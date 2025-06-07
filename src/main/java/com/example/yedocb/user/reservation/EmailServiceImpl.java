@@ -50,4 +50,24 @@ public class EmailServiceImpl implements EmailService {
 
         mailSender.send(message);
     }
+    
+    @Override // 임시 비밀번호 발송 전용 이메일 템플릿 구현
+    public void sendTemporaryPasswordEmail(String uId, String tempPassword) {
+        User user = userMapper.selectByUId(uId);
+        String email = user.getUEmail();
+
+        String subject = "[YeDoc] 임시 비밀번호 안내";
+        String text = String.format(
+            "안녕하세요 %s님,\n\n요청하신 임시 비밀번호는 다음과 같습니다:\n\n임시 비밀번호: %s\n\n로그인 후 반드시 비밀번호를 변경해 주세요.\n\n감사합니다.",
+            uId,
+            tempPassword
+        );
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject(subject);
+        message.setText(text);
+
+        mailSender.send(message);
+    }
 }
