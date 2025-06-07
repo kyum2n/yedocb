@@ -16,4 +16,7 @@ import com.example.yedocb.reservation.entity.Reservation;
 
 public interface EmailService {
     void sendConfirmEmail(String uId, Reservation reservation);
+    
+    // 임시 비밀번호 발송용 메서드 정의 추가
+    void sendTemporaryPasswordEmail(String uId, String tempPassword);
 } 
