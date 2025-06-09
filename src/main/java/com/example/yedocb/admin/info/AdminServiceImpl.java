@@ -51,16 +51,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public String findAdminId(String aEmail) {
+    public Admin findAdminId(String aEmail) {
         return adminMapper.findAdminId(aEmail);
     }
 
     @Override
     public String findAdminPassword(String aId, String aEmail) {
         String aPwd = adminMapper.findAdminPassword(aId, aEmail);
-        if (aPwd != null) {
-            adminEmailService.sendPasswordEmail(aEmail, aPwd);
+        if(aPwd != null) {
+        	adminEmailService.sendPasswordEmail(aEmail, aPwd);
         }
+        
         return aPwd;
     }
 }

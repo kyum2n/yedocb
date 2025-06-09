@@ -33,7 +33,7 @@
 	</select>
 	
 	<!-- 관리자 이메일로 관리자 아이디 찾기 -->
-	<select id="findAdminId" resultType="String">
+	<select id="findAdminId" resultType="Admin" parameterType="String">
 		SELECT aId FROM admin
 		WHERE aEmail = #{aEmail}
 	</select>

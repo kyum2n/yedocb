@@ -1,6 +1,7 @@
 package com.example.yedocb.admin.info;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -26,11 +27,14 @@ public class AdminController {
 	// 필드 및 생성자 주입
 	 private final AdminService adminService;
 	 private final JwtTokenProvider jwtTokenProvider;
+	 private final AdminEmailService adminEmailService;
 
 	 public AdminController(@Qualifier("adminServiceImpl") AdminService adminService, 
-			 				JwtTokenProvider jwtTokenProvider) {
+			 				JwtTokenProvider jwtTokenProvider,
+			 				AdminEmailService adminEmailService) {
 		 this.adminService = adminService;
 		 this.jwtTokenProvider = jwtTokenProvider;
+		 this.adminEmailService = adminEmailService;
 	 }
 	 
 	// 직원 목록 조회
@@ -88,22 +92,23 @@ public class AdminController {
 	
 	// 관리자 아이디 찾기
 	@PostMapping("/find_id")
-	public ResponseEntity<String> findAdminId(@RequestParam("aEmail") String aEmail) {
-		String aId = adminService.findAdminId(aEmail);
-		if(aId == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	public ResponseEntity<?> findAdminId(@RequestParam("aEmail") String aEmail) {
+		Admin admin = adminService.findAdminId(aEmail);
+		if(admin == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 이메일로 등록된 관리자가 없습니다.");
 		}
-		return ResponseEntity.ok(aId);
+		return ResponseEntity.ok(Map.of("aId", admin.getAId()));
 	}
 	
 	// 관리자 비밀번호 찾기
 	@PostMapping("/find_password")
-	public ResponseEntity<String> findAdminPassword(@RequestParam("aId") String aId, @RequestParam("aEmail") String aEmail){
+	public ResponseEntity<?> findAdminPassword(@RequestParam("aId") String aId, @RequestParam("aEmail") String aEmail){
 		String aPwd = adminService.findAdminPassword(aId, aEmail);
 		if(aPwd == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 관리자 정보를 찾을 수 없습니다.");
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 관리자 비밀번호를 찾을 수 없습니다.");
 		}
-		return ResponseEntity.ok("관리자 정보가 이메일로 발송되었습니다.");
+
+		return ResponseEntity.ok("비밀번호가 이메일로 전송되었습니다.");
 	}
 
 }

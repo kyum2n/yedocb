@@ -1,0 +1,27 @@
+2025-06-09 15:00:55.357  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-06-09 15:00:55.358  o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-06-09 15:00:55.358  o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-06-09 15:00:55.360  o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-06-09 15:00:55.360  o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-06-09 15:00:55.361  c.z.h.HikariDataSource - HikariPool-33 - Shutdown initiated... 
+2025-06-09 15:00:55.362  c.z.h.HikariDataSource - HikariPool-33 - Shutdown completed. 
+2025-06-09 15:00:55.427  c.e.y.YedocbApplication - Starting YedocbApplication using Java 21.0.6 with PID 17260 (D:\kyumin\Project\yedocb\bin\main started by YONSAI in D:\kyumin\Project\yedocb) 
+2025-06-09 15:00:55.428  c.e.y.YedocbApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-06-09 15:00:55.590  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-06-09 15:00:55.591  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-06-09 15:00:55.591  o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-06-09 15:00:55.591  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41] 
+2025-06-09 15:00:55.610  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-06-09 15:00:55.610  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 181 ms 
+2025-06-09 15:00:55.643  c.z.h.HikariDataSource - HikariPool-34 - Starting... 
+2025-06-09 15:00:55.684  c.z.h.p.HikariPool - HikariPool-34 - Added connection org.postgresql.jdbc.PgConnection@63b504dc 
+2025-06-09 15:00:55.684  c.z.h.HikariDataSource - HikariPool-34 - Start completed. 
+2025-06-09 15:00:55.755  o.s.w.s.m.m.a.RequestMappingHandlerMapping - 34 mappings in 'requestMappingHandlerMapping' 
+2025-06-09 15:00:55.771  o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2025-06-09 15:00:55.798  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2025-06-09 15:00:55.803  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2025-06-09 15:00:55.818  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-06-09 15:00:55.823  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-06-09 15:00:55.824  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-06-09 15:00:55.826  c.e.y.YedocbApplication - Started YedocbApplication in 0.415 seconds (process running for 20782.107) 
+2025-06-09 15:00:55.827  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
