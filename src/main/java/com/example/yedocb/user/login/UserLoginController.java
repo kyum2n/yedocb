@@ -30,6 +30,7 @@ public class UserLoginController {
         String uId = loginData.get("uId");
         String uPwd = loginData.get("uPwd");
 
+        System.out.println("아이디 : " + uId + ", 비밀번호 : " + uPwd);
         User user = userLoginService.login(uId, uPwd);
 
         if (user != null) {
