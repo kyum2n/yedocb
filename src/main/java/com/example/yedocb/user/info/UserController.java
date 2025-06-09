@@ -51,27 +51,28 @@ public class UserController {
         // 변환 -> "010-xxxx-xxxx" 형태
         String formattedPhone = onlyDigitsPhone.replaceFirst("(010)(\\d{4})(\\d{4})", "$1-$2-$3");
 
-        userService.updatePhoneAndPassword(user.getUId(), formattedPhone, null);
+        userService.updatePhone(user.getUId(), formattedPhone);
         return ResponseEntity.ok("연락처가 수정되었습니다.");
     }
     
     // 비밀번호 수정 : uId 기준으로 비밀번호만 수정
     @PostMapping("/password")
-    public ResponseEntity<String> updatePassword(@RequestBody @Valid User user, 
+    public ResponseEntity<String> updatePassword(@RequestBody Map<String, String> passwordMap,
     											 @RequestHeader("Authorization") String token) {
     	
     	String userIdFromToken = jwtTokenProvider.getUserId(token.replace("Bearer ", ""));
     	
-        if (!user.getUId().equals(userIdFromToken)) {
+        String uId = passwordMap.get("uId");
+        String oldPwd = passwordMap.get("oldPwd");
+        String newPwd = passwordMap.get("newPwd");
+    	
+        if (!uId.equals(userIdFromToken)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "본인만 수정할 수 있습니다.");
         }
     	
         try {
         	
-            String rawPassword = user.getUPwd();
-            String encodedPassword = passwordEncoder.encode(rawPassword); // 암호화
-        	
-            userService.updatePhoneAndPassword(user.getUId(), null, encodedPassword);
+        	userService.updatePassword(uId, oldPwd, newPwd);
             
             return ResponseEntity.ok("비밀번호가 수정되었습니다.");
         } catch (IllegalArgumentException e) {
