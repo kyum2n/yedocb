@@ -59,8 +59,13 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/find_id").permitAll() // 아이디 찾기
                         .requestMatchers("/api/user/find_password").permitAll() // 비밀번호 찾기
                         .requestMatchers("/api/user/register").permitAll() // 사용자 회원가입
-                        .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
                         .requestMatchers("/api/user/refresh").permitAll() // 사용자 JWT 토큰 재 갱신
+                        
+                        
+                        .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
+                        .requestMatchers("/api/admin/find_id").permitAll() // 관리자 아이디 찾기
+                        .requestMatchers("/api/admin/find_password").permitAll() // 관리자 비밀번호 찾기
+
 
                         // 예약 불가능한 시간 확인은 모든 권한 가능
                         .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()// 예약확인용

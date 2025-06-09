@@ -25,7 +25,7 @@ public interface AdminMapper {
 	Admin loginAdmin(@Param("aId") String aId);
 	
 	// 관리자 이메일로 관리자 아이디 찾기
-	String findAdminId(String aEmail);
+	Admin findAdminId(String aEmail);
 	
 	// 관리자 아이디로 비밀번호 찾기
 	String findAdminPassword(@Param("aId") String aId,@Param("aEmail") String aEmail);
