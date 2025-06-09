@@ -1,0 +1,235 @@
+2025-06-09 16:48:18.325  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:18.325  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:18.326  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:18.326  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:18.329  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.329  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.330  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:18.330  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:18.330  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:18.330  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:18.349  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:18.349  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:18.349  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:18.350  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:18.352  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.352  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.352  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:18.352  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:18.352  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:18.352  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:18.358  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:18.358  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:18.360  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.360  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:18.361  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:18.366  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:18.366  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:18.368  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:18.368  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:18.369  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.643  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:19.643  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:19.644  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:19.644  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:19.647  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.647  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.647  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:19.647  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:19.647  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.647  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.673  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:19.673  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:19.673  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:19.673  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:19.674  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.674  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.674  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:19.674  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:19.675  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.675  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.681  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:19.681  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:19.683  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.683  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:19.683  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:19.689  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:19.689  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:19.691  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:19.691  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:19.692  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:24.417  o.s.w.s.DispatcherServlet - POST "/api/user/login", parameters={} 
+2025-06-09 16:48:24.418  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.login.UserLoginController#loginUser(Map) 
+2025-06-09 16:48:24.418  o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [{uId=test, uPwd=1234}] 
+2025-06-09 16:48:24.483  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:24.483  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{refreshToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ5NDU1MzA0LCJleHAiOjE3NTAwNjAxMDR9. (truncated)...] 
+2025-06-09 16:48:24.483  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:25.548  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:25.548  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:25.548  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:25.548  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:25.550  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:25.550  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:25.550  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:25.550  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:25.550  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:25.550  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:25.555  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:25.555  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:25.555  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:25.555  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:25.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:25.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:25.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:25.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-2222-5545)] 
+2025-06-09 16:48:25.557  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:25.557  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:31.771  o.s.w.s.DispatcherServlet - POST "/api/user/phone", parameters={} 
+2025-06-09 16:48:31.772  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#updatePhone(User, String) 
+2025-06-09 16:48:31.772  o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [User(uId=test, uPwd=null, uEmail=null, uName=null, uPhone=123 45864654)] 
+2025-06-09 16:48:31.775  o.s.w.s.DispatcherServlet - Failed to complete request: java.lang.IllegalArgumentException: 전화번호 형식이 올바르지 않습니다. (예: 01012345678 또는 010-1234-5678) 
+2025-06-09 16:48:31.776  o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: 전화번호 형식이 올바르지 않습니다. (예: 01012345678 또는 010-1234-5678)] with root cause 
+java.lang.IllegalArgumentException: 전화번호 형식이 올바르지 않습니다. (예: 01012345678 또는 010-1234-5678)
+	at com.example.yedocb.user.info.UserController.updatePhone(UserController.java:48)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.yedocb.jwt.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-06-09 16:48:39.611  o.s.w.s.DispatcherServlet - POST "/api/user/phone", parameters={} 
+2025-06-09 16:48:39.611  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#updatePhone(User, String) 
+2025-06-09 16:48:39.612  o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [User(uId=test, uPwd=null, uEmail=null, uName=null, uPhone=010 45864654)] 
+2025-06-09 16:48:39.615  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [text/plain, */*, application/json, application/*+json] 
+2025-06-09 16:48:39.615  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["연락처가 수정되었습니다."] 
+2025-06-09 16:48:39.615  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:40.491  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:40.491  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:40.493  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:40.493  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-4586-4654)] 
+2025-06-09 16:48:40.493  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.134  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:43.134  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:43.135  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:43.135  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:43.137  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.137  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.137  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:43.137  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-4586-4654)] 
+2025-06-09 16:48:43.137  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.137  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.150  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:43.150  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:43.150  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-09 16:48:43.150  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-09 16:48:43.152  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.152  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.152  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]] 
+2025-06-09 16:48:43.152  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-4586-4654)] 
+2025-06-09 16:48:43.153  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.153  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.158  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:43.158  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:43.161  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.161  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-4586-4654)] 
+2025-06-09 16:48:43.162  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-09 16:48:43.185  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-09 16:48:43.185  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-09 16:48:43.188  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-09 16:48:43.188  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-4586-4654)] 
+2025-06-09 16:48:43.189  o.s.w.s.DispatcherServlet - Completed 200 OK 
