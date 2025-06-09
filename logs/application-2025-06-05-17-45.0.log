@@ -1,0 +1,7 @@
+2025-06-05 17:45:25.379  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2025-06-05 17:45:25.380  o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-06-05 17:45:25.380  o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-06-05 17:45:25.382  o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-06-05 17:45:25.382  o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-06-05 17:45:25.383  c.z.h.HikariDataSource - HikariPool-20 - Shutdown initiated... 
+2025-06-05 17:45:25.384  c.z.h.HikariDataSource - HikariPool-20 - Shutdown completed. 
