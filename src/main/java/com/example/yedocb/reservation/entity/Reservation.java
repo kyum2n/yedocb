@@ -11,6 +11,8 @@ import lombok.Setter;
 @Data
 @Setter
 public class Reservation {
+	
+	@JsonProperty("rId")
     private int rId;
     
     @JsonProperty("uId")
