@@ -13,4 +13,3 @@ VALUES ('test', '테스트유저', 'test@example.com', '$2a$10$tTrBmsF8CaOmimgOn
 
 INSERT INTO reservations (uId, tName, consultDate, consultTime, status)
 VALUES ('test', '보톡스 시술', '2025-06-01', '14:30:00', '대기');
-
