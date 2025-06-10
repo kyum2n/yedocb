@@ -37,6 +37,7 @@ public class JwtTokenProvider {
     @Value("${jwt.secret}")
     private String secret;
     
+    
     // application.properties 에서 주입 -> jwt.expiration 속성
     @Value("${jwt.expiration}")
     private long tokenValidTime;
