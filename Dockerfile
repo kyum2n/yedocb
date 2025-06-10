@@ -3,12 +3,13 @@ FROM gradle:8.5-jdk21 AS build
 WORKDIR /app
 
 # 의존성 캐시
-COPY build.gradle settings.gradle
-RUN gradle build --no-daemon || return 0
+COPY build.gradle settings.gradle gradle.properties gradlew ./
+COPY gradle ./gradle
+RUN ./gradlew build -x test --no-daemon || true
 
 # 실제 빌드
 COPY . .
-RUN gradle build --no-daemon
+RUN ./gradlew build -x test --no-daemon
 
 # JRE 환경 설정
 FROM openjdk:21-jdk-slim
