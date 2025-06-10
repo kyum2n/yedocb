@@ -12,11 +12,11 @@ pipeline {
             }
         }
 
-       //  stage('Build') {
-       //      steps {
-       //          sh './gradlew clean build -x test --no-daemon'
-       //      }
-       //  }
+        stage('Build') {
+            steps {
+                sh './gradlew clean build -x test --no-daemon'
+            }
+        }
 
        //  stage('Test') {
        //      when {
