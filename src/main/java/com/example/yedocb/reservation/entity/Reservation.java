@@ -11,6 +11,7 @@ import lombok.Setter;
 @Data
 @Setter
 public class Reservation {
+	@JsonProperty("rId")
     private int rId;
     
     @JsonProperty("uId")
@@ -19,9 +20,12 @@ public class Reservation {
     @JsonProperty("tName")
     private String tName;
     
+    @JsonProperty("consultDate")
     private Date consultDate;
     
+    @JsonProperty("consultTime")
     private LocalTime consultTime;
     
+    @JsonProperty("status")
     private String status;
 }

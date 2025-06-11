@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.yedocb.reservation.repository.ReservationMapper">
 
-    <insert id="insertReservation" parameterType="Reservation">
+    <insert id="insertReservation" parameterType="Reservation" useGeneratedKeys="true" keyProperty="rId">
         INSERT INTO reservations(uId, tName, consultDate, consultTime, status)
         VALUES (#{uId}, #{tName}, #{consultDate}, #{consultTime}, #{status})
     </insert>

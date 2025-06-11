@@ -56,21 +56,29 @@ public class AdminReserveServiceImpl implements AdminReserveService {
         mailSender.send(message);
     }
 
+    // 모든 예약 목록 조회
     @Override
     public List<Reservation> getAllReservations() {
         return reservationMapper.selectAllReservation();
     }
 
+    // 예약 상태 변경
     @Override
     public void updateReservationStatus(int rId, String status) {
         reservationMapper.updateStatus(rId, status);
     }
 
+    // 예약 등록 및 변경사항 적용
     @Override
     public void modifyReservationSchedule(Reservation reservation) {
-        reservationMapper.updateReservation(reservation);
+    	if(reservation.getRId() == 0) {
+    		reservationMapper.insertReservation(reservation);
+    	} else {
+    		reservationMapper.updateReservation(reservation);
+    	}
     }
 
+    // 예약 삭제
     @Override
     public void deleteReservation(int rId) {
         reservationMapper.deleteReservation(rId);

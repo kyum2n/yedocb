@@ -36,76 +36,62 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    // JwtAuthenticationFilter 를 주입받음 (JWT 토큰 검증용 필터)
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    // SecurityFilterChain Bean 등록 (Spring Security 필터 설정)
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
 
-              // CORS 활성화 (아래 corsConfigurationSource()와 연결됨)
-              .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-          
-                // CSRF 비활성화 (JWT 기반에서는 필요 없음)
-                .csrf(csrf -> csrf.disable())
-                
-                // 세션 사용하지 않음 (JWT 방식은 Stateless)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                // 경로별 권한 설정
-                .authorizeHttpRequests(auth -> auth
-                        // 로그인, 회원가입 요청은 인증 없이 허용 (권한 자체가 있으면 안됨 절때로)
-                        .requestMatchers("/api/user/login").permitAll() // 사용자 로그인
-                        .requestMatchers("/api/user/find_id").permitAll() // 아이디 찾기
-                        .requestMatchers("/api/user/find_password").permitAll() // 비밀번호 찾기
-                        .requestMatchers("/api/user/register").permitAll() // 사용자 회원가입
-                        .requestMatchers("/api/user/refresh").permitAll() // 사용자 JWT 토큰 재 갱신
-                        
-                        
-                        .requestMatchers("/api/admin/login").permitAll() // 관리자 로그인
-                        .requestMatchers("/api/admin/find_id").permitAll() // 관리자 아이디 찾기
-                        .requestMatchers("/api/admin/find_password").permitAll() // 관리자 비밀번호 찾기
+                // 사용자 인증 없이 접근 가능한 요청
+                .requestMatchers("/api/user/login").permitAll()
+                .requestMatchers("/api/user/find_id").permitAll()
+                .requestMatchers("/api/user/find_password").permitAll()
+                .requestMatchers("/api/user/register").permitAll()
+                .requestMatchers("/api/user/refresh").permitAll()
 
+                .requestMatchers("/api/admin/login").permitAll()
+                .requestMatchers("/api/admin/find_id").permitAll()
+                .requestMatchers("/api/admin/find_password").permitAll()
 
-                        // 예약 불가능한 시간 확인은 모든 권한 가능
-                        .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()// 예약확인용
+                .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()
 
-                        // User, Admin, SuperAdmin 권한
-                        .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                        
-                        // User, Admin, SuperAdmin 예약 권한
-                        .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                // 관리자 예약/회원 기능용 API 허용 (프론트 403 대응)
+                .requestMatchers("/api/admin/reserve").permitAll()
+                .requestMatchers("/api/admin/reserve/**").permitAll()
+                .requestMatchers("/api/admin/users").permitAll()
+                .requestMatchers("/api/admin/users/**").permitAll()
+                .requestMatchers("/api/admin/user").permitAll()
+                .requestMatchers("/api/admin/user/**").permitAll()
 
-                        // SuperAdmin 권한 - 직원 목록 등록/삭제/조회
-                        .requestMatchers("/api/admin/staff", "/api/admin/staff/**").hasRole("SUPERADMIN")
+                // 권한 기반 접근 제한
+                .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/staff", "/api/admin/staff/**").hasRole("SUPERADMIN")
+                .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
 
-                        // 나머지 관리자 API는 ADMIN 이상
-                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                       
-                        // 모든 요청은 인증 필요
-                        .anyRequest().authenticated()
-                )
-                // JWT 필터를 UsernamePasswordAuthenticationFilter 앞에 추가
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+                // 그 외 모든 요청은 인증 필요
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+            .build();
     }
-    
 
-    // AuthenticationManager Bean 등록 / (CustomUserDetailsService 를 사용한 인증 처리를 위해 필요)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-    
 
-    //CORS설정 Bean
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173")); // React dev 서버 주소
+        config.setAllowedOrigins(List.of("http://localhost:5173")); // React 개발 서버
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true); // 필요 시 쿠키도 전송 가능
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

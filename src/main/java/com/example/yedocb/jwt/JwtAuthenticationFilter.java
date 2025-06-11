@@ -68,14 +68,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String userId = jwtTokenProvider.getUserId(token);
             List<String> roles = jwtTokenProvider.getRoles(token);
             
-            System.out.println("[JwtFilter] 토큰: " + token);
-            System.out.println("[JwtFilter] 권한: " + roles);
+
 
 
             // Roles 를 Spring Security 가 인식할 수 있는 권한 객체로 변환함
             List<SimpleGrantedAuthority> authorities = roles.stream()
                     .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                     .collect(Collectors.toList());
+
+            System.out.println("[JwtFilter] 토큰: " + token);
+            System.out.println("[JwtFilter] 권한: " + roles);
+            System.out.println("[JwtFilter] 최종 권한 객체: " + authorities);
 
             // Authentication(인증) 객체 생성 (주체: userId, 인증정보 없음, 권한 목록)
             Authentication authentication = new UsernamePasswordAuthenticationToken(userId, null, authorities);
