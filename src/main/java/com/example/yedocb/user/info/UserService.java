@@ -3,9 +3,13 @@ package com.example.yedocb.user.info;
 import com.example.yedocb.user.entity.User;
 
 public interface UserService {
-	// 전화번호 및 비밀번호 수정
-    void updatePhoneAndPassword(String uId, String phone, String pwd);
 
+    // 전화번호 수정
+    void updatePhone(String uId, String phone);
+
+    // 비밀번호 수정
+    void updatePassword(String uId, String oldPwd, String newPwd);
+    
     // 회원가입
     void registerUser(User user);
 

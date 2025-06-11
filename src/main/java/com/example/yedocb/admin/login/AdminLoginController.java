@@ -19,7 +19,7 @@ import com.example.yedocb.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/admin")   
 @RequiredArgsConstructor
 public class AdminLoginController {
 	

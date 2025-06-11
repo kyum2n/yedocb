@@ -30,40 +30,38 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder; // 비밀번호 암호화 주입받기
 
-    // 사용자 전화번호 or 비밀번호를 수정하는 메서드 (전달된 값 중 null이 아닌 항목 수정함)
+    // 전화번호 수정
     @Override
-    public void updatePhoneAndPassword(String uId, String phone, String pwd) {
+    public void updatePhone(String uId, String phone) {
+        userMapper.updateUserPhonePwd(uId, phone, null);
+    }
 
-        // 전화번호만 수정
-        if (phone != null && !phone.isBlank() && (pwd == null || pwd.isBlank())) {
-            userMapper.updateUserPhonePwd(uId, phone, null);
-            return;
+    // 비밀번호 수정
+    @Override
+    public void updatePassword(String uId, String oldPwd, String newPwd) {
+        User user = userMapper.selectByUId(uId);
+        String currentPwd = user.getUPwd();
+
+        // 기존 비밀번호 확인
+        if (!passwordEncoder.matches(oldPwd, currentPwd)) {
+            throw new IllegalArgumentException("기존 비밀번호가 일치하지 않습니다.");
         }
 
-        // 비밀번호만 수정
-        if (pwd != null && !pwd.isBlank() && (phone == null || phone.isBlank())) {
-            User user = userMapper.selectByUId(uId);
-            String currentPwd = user.getUPwd();
-
-            if (currentPwd.equals(pwd)) {
-                throw new IllegalArgumentException("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.");
-            }
-
-            userMapper.updateUserPhonePwd(uId, null, pwd);
-            return;
+        // 새 비밀번호가 현재 비밀번호와 동일한지 확인
+        if (passwordEncoder.matches(newPwd, currentPwd)) {
+            throw new IllegalArgumentException("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.");
+        }
+        
+        // 비밀번호는 8자 이상, 영문, 숫자, 특수문자를 반드시 포함해야 함
+        String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[!@#$%^&*()_+{}\\[\\]:;<>,.?~\\/\\-]).{8,}$";
+        
+        if (!newPwd.matches(passwordPattern)) {
+        	throw new IllegalArgumentException("비밀번호는 8자 이상, 영문, 숫자, 특수문자를 포함해야 합니다.");
         }
 
-        // 둘 다 수정
-        if (phone != null && !phone.isBlank() && pwd != null && !pwd.isBlank()) {
-            User user = userMapper.selectByUId(uId);
-            String currentPwd = user.getUPwd();
-
-            if (currentPwd.equals(pwd)) {
-                throw new IllegalArgumentException("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.");
-            }
-
-            userMapper.updateUserPhonePwd(uId, phone, pwd);
-        }
+        // 암호화 후 저장
+        String encodedNewPwd = passwordEncoder.encode(newPwd);
+        userMapper.updateUserPhonePwd(uId, null, encodedNewPwd);
     }
     
     // 사용자 회원가입을 처리하는 메서드 (전달받은 사용자 정보 DB에 저장함)

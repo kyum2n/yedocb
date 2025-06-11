@@ -1,0 +1,17 @@
+2025-06-05 17:39:15.403  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: accepted socket from [127.0.0.1:56029] 
+2025-06-05 17:39:15.405  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: (port 55639) op = 80 
+2025-06-05 17:39:15.405  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-05 17:39:17.501  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-05 17:39:17.501  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-05 17:39:17.882  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: (port 55639) op = 82 
+2025-06-05 17:39:17.883  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: (port 55639) op = 80 
+2025-06-05 17:39:17.884  s.r.loader - RMI TCP Connection(18)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@10d5d4e3 
+2025-06-05 17:39:17.893  s.r.loader - RMI TCP Connection(18)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@10d5d4e3 
+2025-06-05 17:39:17.893  s.r.loader - RMI TCP Connection(18)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@10d5d4e3 
+2025-06-05 17:39:17.893  s.r.loader - RMI TCP Connection(18)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@10d5d4e3 
+2025-06-05 17:39:17.893  s.r.loader - RMI TCP Connection(18)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@10d5d4e3 
+2025-06-05 17:39:45.408  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: (port 55639) connection closed 
+2025-06-05 17:39:45.409  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=56029,localport=55639] 
+2025-06-05 17:39:45.409  s.r.t.tcp - RMI TCP Connection(18)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=56029,localport=55639] 
+2025-06-05 17:39:47.508  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-05 17:39:47.508  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
