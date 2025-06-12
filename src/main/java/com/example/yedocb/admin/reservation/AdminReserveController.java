@@ -1,6 +1,7 @@
 package com.example.yedocb.admin.reservation;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,29 +17,31 @@ public class AdminReserveController {
 
     private final AdminReserveService adminReserveService;
 
-    // 전체 예약 목록 조회 (프론트에서 GET 요청함)
-    @GetMapping
+
+    // 예약 목록 조회
+    @GetMapping("/reserves")
     public ResponseEntity<List<Reservation>> getAllReservations() {
         return ResponseEntity.ok(adminReserveService.getAllReservations());
     }
 
-    // 예약 상태 변경 (프론트에서 POST 요청, status 값은 query param)
+
+    // 예약 상태 변경
     @PostMapping("/{rId}/status")
-    public ResponseEntity<String> changeStatus(
-            @PathVariable("rId") int rId,
-            @RequestParam("status") String status) {
-        adminReserveService.updateReservationStatus(rId, status);
+    public ResponseEntity<String> changeStatus(@PathVariable("rId") int rId, @RequestBody Map<String, String> statusMap) {
+       String status = statusMap.get("status");
+    	adminReserveService.updateReservationStatus(rId, status);
         return ResponseEntity.ok("상태 변경 완료");
     }
 
-    // 예약 추가
+    // 예약 등록
     @PostMapping
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation) {
         adminReserveService.modifyReservationSchedule(reservation);
         return ResponseEntity.ok(reservation);
     }
 
-    // 예약 수정
+
+    // 예약 변경
     @PostMapping("/{rId}")
     public ResponseEntity<Reservation> updateReservation(
             @PathVariable("rId") int rId,
@@ -55,7 +58,8 @@ public class AdminReserveController {
         return ResponseEntity.ok().build();
     }
 
-    // (선택 기능) 예약 알림 메일 발송
+
+    // 예약 알림 메일 발송
     @PostMapping("/notify")
     public ResponseEntity<String> sendReminderEmails() {
         adminReserveService.sendReminderEmails();

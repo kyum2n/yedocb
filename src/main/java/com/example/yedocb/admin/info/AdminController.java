@@ -24,7 +24,7 @@ import com.example.yedocb.jwt.JwtTokenProvider;
 @RequestMapping("/api/admin")
 public class AdminController {
 	
-	// 필드 및 생성자 주입
+	// 필드 및 생성자 주입 
 	 private final AdminService adminService;
 	 private final JwtTokenProvider jwtTokenProvider;
 	 private final AdminEmailService adminEmailService;
@@ -60,7 +60,7 @@ public class AdminController {
 	@PostMapping("/staff")
 	public ResponseEntity<String> createAdmin(@RequestBody Admin admin, @RequestHeader("Authorization") String authHeader) {
 		
-		String token = authHeader.replace("Bearer", ""); 
+		String token = authHeader.replace("Bearer", "").trim(); 
 		
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		
@@ -77,7 +77,7 @@ public class AdminController {
 	@DeleteMapping("/staff/{aId}")
 	public ResponseEntity<String> deleteAdmin(@PathVariable("aId") String aId, @RequestHeader("Authorization") String authHeader) {
 		
-		String token = authHeader.replace("Bearer", ""); 
+		String token = authHeader.replace("Bearer", "").trim(); 
 		
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		

@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# 민감 정보
+src/main/resources/application.properties
+
+# 로그 디렉토리
+/logs/
