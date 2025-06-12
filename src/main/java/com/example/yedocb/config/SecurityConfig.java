@@ -20,15 +20,15 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
- * packageName    : com.example.yedocb.config
- * fileName       : SecurityConfig
- * author         : [ysg]
- * date           : [작성일자 : 2025-06-02]
- * description    : Spring Security 설정 (JWT + 권한별 경로 설정)
+ * packageName : com.example.yedocb.config
+ * fileName : SecurityConfig
+ * author : [ysg]
+ * date : [작성일자 : 2025-06-02]
+ * description : Spring Security 설정 (JWT + 권한별 경로 설정)
  * ===========================================================
- * DATE              AUTHOR             NOTE
+ * DATE AUTHOR NOTE
  * -----------------------------------------------------------
- * 2025-06-02        [ysg]              최초 생성
+ * 2025-06-02 [ysg] 최초 생성
  */
 
 @Configuration
@@ -52,6 +52,9 @@ public class SecurityConfig {
                 .requestMatchers("/api/user/find_password").permitAll()
                 .requestMatchers("/api/user/register").permitAll()
                 .requestMatchers("/api/user/refresh").permitAll()
+                .requestMatchers("/api/oauth2/**").permitAll() // 소셜 로그인
+                .requestMatchers("/api/user/send-code").permitAll() // 회원가입 중 이메일
+                .requestMatchers("/api/user/verify-code").permitAll() // 회원가입 중 이메일
 
                 .requestMatchers("/api/admin/login").permitAll()
                 .requestMatchers("/api/admin/find_id").permitAll()
