@@ -18,41 +18,66 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Component
-@RequiredArgsConstructor
+
+/**
+ * packageName : com.example.yedocb.jwt
+ * fileName : JwtAuthenticationFilter
+ * author : [ysg]
+ * date : [작성일자 : 2025-06-02]
+ * description : JWT 인증 필터 (JWT 검증 후 인증 정보 저장)
+ * ===========================================================
+ * DATE AUTHOR NOTE
+ * -----------------------------------------------------------
+ * 2025-06-02 [ysg] 최초 생성
+ */
+
+@Component // 스프링 빈으로 등록 (SecurityConfig 에서 필터 체인에 추가해서 사용)
+@RequiredArgsConstructor // 생성자 주입 (jwtTokenProvider 주입받음)
+
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private static final Set<String> WHITELIST = Set.of(
-            "/api/user/register", "/api/user/login", "/api/user/find_id", "/api/user/find_password",
-            "/api/user/refresh", "/api/admin/login", "/api/admin/find_id", "/api/admin/find_password",
-            "/api/hello", "/api/noticeEvent"
-    );
 
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getRequestURI();
-        return WHITELIST.contains(path) || path.startsWith("/api/noticeEvent");
-    }
-
+    // 요청 들어올 시 실행되는 메서드 (1회성 필터임) / JWT 토큰 검증 후 인증 정보를 SecurityContextHolder에 저장함
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
+        String uri = request.getRequestURI();
+
+        // 인증 없이 허용된 경로는 바로 다음 필터로 넘김
+        if (uri.equals("/api/user/register") ||
+            uri.equals("/api/user/login") ||
+            uri.equals("/api/user/find_id") ||
+            uri.equals("/api/user/find_password") ||
+            uri.equals("/api/admin/login") ||
+            uri.equals("/api/admin/find_id") ||
+            uri.equals("/api/admin/find_password") ||
+            uri.equals("/api/hello") ||
+            uri.equals("/api/user/send-code") ||
+            uri.equals("/api/user/verify-code") ||
+            uri.equals("/api/user/refresh")) {
+
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        // Authorization(인증) 헤더에서 JWT 토큰 추출함
         String token = resolveToken(request);
         if (token != null && jwtTokenProvider.validateToken(token)) {
+
+            // 토큰에서 사용자 ID (subject)와 roles 추출함
             String userId = jwtTokenProvider.getUserId(token);
             List<String> roles = jwtTokenProvider.getRoles(token);
-
-
-            List<SimpleGrantedAuthority> authorities = roles.stream()
-                    .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
-                    .collect(Collectors.toList());
-
             System.out.println("[JwtFilter] 토큰: " + token);
             System.out.println("[JwtFilter] 권한: " + roles);
-            System.out.println("[JwtFilter] 최종 권한 객체: " + authorities);
+
+            // Roles 를 Spring Security 가 인식할 수 있는 권한 객체로 변환함
+            List<SimpleGrantedAuthority> authorities = roles.stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+                .collect(Collectors.toList());
 
             // Authentication(인증) 객체 생성 (주체: userId, 인증정보 없음, 권한 목록)
             Authentication authentication = new UsernamePasswordAuthenticationToken(userId, null, authorities);
@@ -64,8 +89,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+
+            // "Bearer " 이후 문자열 (실제 토큰 값) 반환
             return bearerToken.substring(7);
         }
+
+        // 조건에 맞지 않으면 null 반환
         return null;
     }
 }

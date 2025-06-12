@@ -113,10 +113,24 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+
+/**
+ * packageName : com.example.yedocb.config
+ * fileName : SecurityConfig
+ * author : [ysg]
+ * date : [작성일자 : 2025-06-02]
+ * description : Spring Security 설정 (JWT + 권한별 경로 설정)
+ * ===========================================================
+ * DATE AUTHOR NOTE
+ * -----------------------------------------------------------
+ * 2025-06-02 [ysg] 최초 생성
+ */
+
 import com.example.yedocb.jwt.JwtAuthenticationFilter;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+
 
 @Configuration
 @EnableWebSecurity
@@ -137,6 +151,12 @@ public class SecurityConfig {
                 .requestMatchers("/api/user/find_id").permitAll()
                 .requestMatchers("/api/user/find_password").permitAll()
                 .requestMatchers("/api/user/refresh").permitAll()
+
+                .requestMatchers("/api/oauth2/**").permitAll() // 소셜 로그인
+                .requestMatchers("/api/user/send-code").permitAll() // 회원가입 중 이메일
+                .requestMatchers("/api/user/verify-code").permitAll() // 회원가입 중 이메일
+
+
                 .requestMatchers("/api/admin/login").permitAll()
                 .requestMatchers("/api/admin/find_id").permitAll()
                 .requestMatchers("/api/admin/find_password").permitAll()

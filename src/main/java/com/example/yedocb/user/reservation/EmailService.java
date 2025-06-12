@@ -19,4 +19,7 @@ public interface EmailService {
     
     // 임시 비밀번호 발송용 메서드 정의 추가
     void sendTemporaryPasswordEmail(String uId, String tempPassword);
+    
+    // 회원 가입 시 인증코드 발송
+    void sendVerificationCode(String uEmail, String code);
 } 

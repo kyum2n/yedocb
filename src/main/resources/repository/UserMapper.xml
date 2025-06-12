@@ -29,8 +29,8 @@
 	</delete>
     
     <!-- 이메일로 ID 조회 -->
-    <select id="selectByUEmail" parameterType="string" resultType="com.example.yedocb.user.entity.User">
-    	SELECT * FROM users WHERE uEmail = #{uEmail}
+	<select id="selectByUEmail" parameterType="string" resultType="com.example.yedocb.user.entity.User">
+		SELECT * FROM users WHERE LOWER(uEmail) = LOWER(#{uEmail})
 	</select>
 	
 	<!-- 아이디로 이메일 조회 -->
