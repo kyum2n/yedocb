@@ -1,5 +1,6 @@
 package com.example.yedocb.user.login;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ import lombok.RequiredArgsConstructor;
  */
 
 @Service
+@Primary
 @RequiredArgsConstructor
 public class UserLoginServiceImpl implements UserLoginService{
 

@@ -1,0 +1,73 @@
+2025-06-10 18:30:02.403  o.s.s.w.FilterChainProxy - Securing GET /api/admin/users 
+2025-06-10 18:30:02.409  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-10 18:30:02.409  o.s.s.w.FilterChainProxy - Secured GET /api/admin/users 
+2025-06-10 18:30:02.409  o.s.w.s.DispatcherServlet - GET "/api/admin/users", parameters={} 
+2025-06-10 18:30:02.410  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-10 18:30:02.411  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-10 18:30:02.412  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/admin/users.] 
+2025-06-10 18:30:02.412  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-10 18:30:02.413  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-10 18:30:02.413  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-10 18:30:02.413  o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access 
+2025-06-10 18:30:02.416  o.s.s.w.FilterChainProxy - Securing GET /api/admin/users 
+2025-06-10 18:30:02.416  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-10 18:30:02.417  o.s.s.w.FilterChainProxy - Secured GET /api/admin/users 
+2025-06-10 18:30:02.417  o.s.w.s.DispatcherServlet - GET "/api/admin/users", parameters={} 
+2025-06-10 18:30:02.417  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-10 18:30:02.417  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-10 18:30:02.417  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/admin/users.] 
+2025-06-10 18:30:02.417  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-10 18:30:02.418  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-10 18:30:02.418  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-10 18:30:02.418  o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access 
+2025-06-10 18:30:13.363  o.s.s.w.FilterChainProxy - Securing POST /api/admin/user 
+2025-06-10 18:30:13.363  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-10 18:30:13.363  o.s.s.w.FilterChainProxy - Secured POST /api/admin/user 
+2025-06-10 18:30:13.363  o.s.w.s.DispatcherServlet - POST "/api/admin/user", parameters={} 
+2025-06-10 18:30:13.363  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.admin.user.AdminUserController#addUser(User) 
+2025-06-10 18:30:13.369  o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [User(uId=user1, uPwd=1234, uEmail=test22@gmail.com, uName=양승규, uPhone=01000000001)] 
+2025-06-10 18:30:13.369  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-10 18:30:13.369  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@348a07e6] was not registered for synchronization because synchronization is not active 
+2025-06-10 18:30:13.370  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-10 18:30:13.370  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1230742838 wrapping org.postgresql.jdbc.PgConnection@7b1cd3b2] will not be managed by Spring 
+2025-06-10 18:30:13.370  c.e.y.u.r.U.insertUser - ==>  Preparing: INSERT INTO users (uId, uName, uEmail, uPwd, uPhone) VALUES (?, ?, ?, ?, ?) 
+2025-06-10 18:30:13.370  c.e.y.u.r.U.insertUser - ==> Parameters: user1(String), 양승규(String), test22@gmail.com(String), 1234(String), 01000000001(String) 
+2025-06-10 18:30:13.371  c.e.y.u.r.U.insertUser - <==    Updates: 1 
+2025-06-10 18:30:13.371  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@348a07e6] 
+2025-06-10 18:30:13.376  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-10 18:30:13.376  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=user1, uPwd=1234, uEmail=test22@gmail.com, uName=양승규, uPhone=01000000001)] 
+2025-06-10 18:30:13.377  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(5)-127.0.0.1: (port 52777) connection closed 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(4)-127.0.0.1: (port 52777) connection closed 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(3)-127.0.0.1: (port 52777) connection closed 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(1)-127.0.0.1: (port 52777) connection closed 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(4)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52819,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(3)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52818,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(5)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52820,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(1)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52782,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(3)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52818,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(1)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52782,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(4)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52819,localport=52777] 
+2025-06-10 18:30:13.703  s.r.t.tcp - RMI TCP Connection(5)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52820,localport=52777] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(2)-127.0.0.1: (port 52780) connection closed 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(2)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52783,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(7)-127.0.0.1: (port 52780) connection closed 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(6)-127.0.0.1: (port 52780) connection closed 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(7)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52822,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(8)-127.0.0.1: (port 52780) connection closed 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(2)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52783,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(6)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52821,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(8)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52823,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(7)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52822,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(6)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52821,localport=52780] 
+2025-06-10 18:30:13.709  s.r.t.tcp - RMI TCP Connection(8)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52823,localport=52780] 
+2025-06-10 18:30:15.373  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-10 18:30:15.373  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-10 18:30:43.722  s.r.t.tcp - RMI TCP Connection(9)-127.0.0.1: accepted socket from [127.0.0.1:52922] 
+2025-06-10 18:30:43.722  s.r.t.tcp - RMI TCP Connection(9)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:30:43.722  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-10 18:30:45.384  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-10 18:30:45.384  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-10 18:30:58.723  s.r.t.tcp - RMI TCP Connection(9)-127.0.0.1: (port 52780) connection closed 
+2025-06-10 18:30:58.723  s.r.t.tcp - RMI TCP Connection(9)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=52922,localport=52780] 
+2025-06-10 18:30:58.723  s.r.t.tcp - RMI TCP Connection(9)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=52922,localport=52780] 

@@ -1,13 +1,15 @@
 package com.example.yedocb.user.info;
 
-import com.example.yedocb.user.entity.User;
-import com.example.yedocb.user.repository.UserMapper;
-import lombok.RequiredArgsConstructor;
-
 import java.util.UUID;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.example.yedocb.user.entity.User;
+import com.example.yedocb.user.repository.UserMapper;
+
+import lombok.RequiredArgsConstructor;
 
 /**
  * packageName    : com.example.yedocb.user.info
@@ -24,6 +26,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
+@Primary
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 

@@ -1,5 +1,6 @@
 package com.example.yedocb.admin.login;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import com.example.yedocb.admin.repository.AdminMapper;
  * -----------------------------------------------------------
  * 
  */
-
+@Primary
 @Service("adminLoginServiceImpl")  // 빈 이름 명시
 public class AdminLoginServiceImpl implements AdminLoginService {
 	

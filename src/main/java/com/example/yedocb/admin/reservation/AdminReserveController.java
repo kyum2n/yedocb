@@ -66,3 +66,4 @@ public class AdminReserveController {
         return ResponseEntity.ok("알림 메일 발송 완료");
     }
 }
+

@@ -1,0 +1,209 @@
+2025-06-11 19:43:00.007  o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [{uId=test, uPwd=1234}] 
+2025-06-11 19:43:00.017  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:00.020  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3bdec] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:00.024  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:00.026  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@712142832 wrapping org.postgresql.jdbc.PgConnection@77097168] will not be managed by Spring 
+2025-06-11 19:43:00.029  c.e.y.u.r.U.selectByUId - ==>  Preparing: SELECT * FROM users WHERE uId = ? 
+2025-06-11 19:43:00.042  c.e.y.u.r.U.selectByUId - ==> Parameters: test(String) 
+2025-06-11 19:43:00.060  c.e.y.u.r.U.selectByUId - <==      Total: 1 
+2025-06-11 19:43:00.064  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3bdec] 
+2025-06-11 19:43:00.166  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:00.167  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{refreshToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ5NjM4NTgwLCJleHAiOjE3NTAyNDMzODB9. (truncated)...] 
+2025-06-11 19:43:00.171  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:00.189  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:00.189  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:00.189  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:00.189  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:00.189  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:00.190  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:00.190  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:00.190  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:00.191  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:00.191  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:00.195  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:00.195  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:00.195  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:00.195  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:00.196  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:00.196  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:00.196  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:00.196  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:00.197  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:00.197  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:05.277  o.s.s.w.FilterChainProxy - Securing GET /api/reserve/test 
+2025-06-11 19:43:05.278  o.s.s.w.FilterChainProxy - Securing GET /api/user/myinfo 
+2025-06-11 19:43:05.297  o.s.s.w.FilterChainProxy - Secured GET /api/reserve/test 
+2025-06-11 19:43:05.297  o.s.s.w.FilterChainProxy - Secured GET /api/user/myinfo 
+2025-06-11 19:43:05.297  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-11 19:43:05.297  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-11 19:43:05.298  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-11 19:43:05.298  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-11 19:43:05.300  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:05.300  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:05.300  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c2c73f7] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:05.300  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@36135733] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:05.300  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:05.300  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:05.300  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@335171368 wrapping org.postgresql.jdbc.PgConnection@77097168] will not be managed by Spring 
+2025-06-11 19:43:05.300  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1169312477 wrapping org.postgresql.jdbc.PgConnection@65d25119] will not be managed by Spring 
+2025-06-11 19:43:05.300  c.e.y.u.r.U.selectUserInfoForMypage - ==>  Preparing: SELECT uId, uName, uEmail, uPhone FROM users WHERE uId = ? 
+2025-06-11 19:43:05.300  c.e.y.r.r.R.selectByUserId - ==>  Preparing: SELECT * FROM reservations WHERE uId = ? 
+2025-06-11 19:43:05.300  c.e.y.u.r.U.selectUserInfoForMypage - ==> Parameters: test(String) 
+2025-06-11 19:43:05.300  c.e.y.r.r.R.selectByUserId - ==> Parameters: test(String) 
+2025-06-11 19:43:05.301  c.e.y.u.r.U.selectUserInfoForMypage - <==      Total: 1 
+2025-06-11 19:43:05.301  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@36135733] 
+2025-06-11 19:43:05.306  c.e.y.r.r.R.selectByUserId - <==      Total: 1 
+2025-06-11 19:43:05.306  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c2c73f7] 
+2025-06-11 19:43:05.307  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:05.309  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Reservation(rId=1, uId=test, tName=보톡스 시술, consultDate=Sun Jun 01 00:00:00 KST 2025, consultTime=14 (truncated)...] 
+2025-06-11 19:43:05.313  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:05.313  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-0000-0000)] 
+2025-06-11 19:43:05.314  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:05.314  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:05.318  o.s.s.w.FilterChainProxy - Securing GET /api/reserve/test 
+2025-06-11 19:43:05.318  o.s.s.w.FilterChainProxy - Securing GET /api/user/myinfo 
+2025-06-11 19:43:05.322  o.s.s.w.FilterChainProxy - Secured GET /api/reserve/test 
+2025-06-11 19:43:05.322  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-11 19:43:05.322  o.s.s.w.FilterChainProxy - Secured GET /api/user/myinfo 
+2025-06-11 19:43:05.322  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-11 19:43:05.322  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-11 19:43:05.322  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-11 19:43:05.323  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:05.323  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:05.323  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@650e1ae9] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:05.323  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@453037fd] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:05.323  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:05.323  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:05.324  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@574258434 wrapping org.postgresql.jdbc.PgConnection@77097168] will not be managed by Spring 
+2025-06-11 19:43:05.324  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@479222798 wrapping org.postgresql.jdbc.PgConnection@65d25119] will not be managed by Spring 
+2025-06-11 19:43:05.324  c.e.y.r.r.R.selectByUserId - ==>  Preparing: SELECT * FROM reservations WHERE uId = ? 
+2025-06-11 19:43:05.324  c.e.y.u.r.U.selectUserInfoForMypage - ==>  Preparing: SELECT uId, uName, uEmail, uPhone FROM users WHERE uId = ? 
+2025-06-11 19:43:05.324  c.e.y.r.r.R.selectByUserId - ==> Parameters: test(String) 
+2025-06-11 19:43:05.324  c.e.y.u.r.U.selectUserInfoForMypage - ==> Parameters: test(String) 
+2025-06-11 19:43:05.324  c.e.y.r.r.R.selectByUserId - <==      Total: 1 
+2025-06-11 19:43:05.324  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@453037fd] 
+2025-06-11 19:43:05.325  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:05.325  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Reservation(rId=1, uId=test, tName=보톡스 시술, consultDate=Sun Jun 01 00:00:00 KST 2025, consultTime=14 (truncated)...] 
+2025-06-11 19:43:05.325  c.e.y.u.r.U.selectUserInfoForMypage - <==      Total: 1 
+2025-06-11 19:43:05.325  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:05.325  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@650e1ae9] 
+2025-06-11 19:43:05.326  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:05.326  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-0000-0000)] 
+2025-06-11 19:43:05.326  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:08.369  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:08.369  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:08.369  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:08.369  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:08.370  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:08.370  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:08.370  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:08.371  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:08.371  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:08.371  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:08.374  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:08.374  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:08.374  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:08.374  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:08.374  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:08.375  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:08.375  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:08.375  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:08.375  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:08.375  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:09.296  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: accepted socket from [127.0.0.1:65473] 
+2025-06-11 19:43:09.296  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: (port 65192) op = 80 
+2025-06-11 19:43:09.296  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-11 19:43:09.541  o.s.s.w.FilterChainProxy - Securing GET /api/user/myinfo 
+2025-06-11 19:43:09.541  o.s.s.w.FilterChainProxy - Securing GET /api/reserve/test 
+2025-06-11 19:43:09.544  o.s.s.w.FilterChainProxy - Secured GET /api/user/myinfo 
+2025-06-11 19:43:09.544  o.s.s.w.FilterChainProxy - Secured GET /api/reserve/test 
+2025-06-11 19:43:09.544  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-11 19:43:09.544  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-11 19:43:09.544  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-11 19:43:09.544  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-11 19:43:09.546  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:09.546  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:09.546  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b47f266] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:09.546  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69e59780] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:09.546  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:09.546  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:09.546  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@561137739 wrapping org.postgresql.jdbc.PgConnection@77097168] will not be managed by Spring 
+2025-06-11 19:43:09.546  c.e.y.u.r.U.selectUserInfoForMypage - ==>  Preparing: SELECT uId, uName, uEmail, uPhone FROM users WHERE uId = ? 
+2025-06-11 19:43:09.546  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@322296167 wrapping org.postgresql.jdbc.PgConnection@65d25119] will not be managed by Spring 
+2025-06-11 19:43:09.546  c.e.y.r.r.R.selectByUserId - ==>  Preparing: SELECT * FROM reservations WHERE uId = ? 
+2025-06-11 19:43:09.546  c.e.y.r.r.R.selectByUserId - ==> Parameters: test(String) 
+2025-06-11 19:43:09.546  c.e.y.u.r.U.selectUserInfoForMypage - ==> Parameters: test(String) 
+2025-06-11 19:43:09.547  c.e.y.u.r.U.selectUserInfoForMypage - <==      Total: 1 
+2025-06-11 19:43:09.547  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b47f266] 
+2025-06-11 19:43:09.547  c.e.y.r.r.R.selectByUserId - <==      Total: 1 
+2025-06-11 19:43:09.547  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69e59780] 
+2025-06-11 19:43:09.547  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:09.547  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:09.547  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-0000-0000)] 
+2025-06-11 19:43:09.547  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Reservation(rId=1, uId=test, tName=보톡스 시술, consultDate=Sun Jun 01 00:00:00 KST 2025, consultTime=14 (truncated)...] 
+2025-06-11 19:43:09.548  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:09.548  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:09.551  o.s.s.w.FilterChainProxy - Securing GET /api/user/myinfo 
+2025-06-11 19:43:09.551  o.s.s.w.FilterChainProxy - Securing GET /api/reserve/test 
+2025-06-11 19:43:09.554  o.s.s.w.FilterChainProxy - Secured GET /api/reserve/test 
+2025-06-11 19:43:09.554  o.s.s.w.FilterChainProxy - Secured GET /api/user/myinfo 
+2025-06-11 19:43:09.554  o.s.w.s.DispatcherServlet - GET "/api/reserve/test", parameters={} 
+2025-06-11 19:43:09.554  o.s.w.s.DispatcherServlet - GET "/api/user/myinfo", parameters={} 
+2025-06-11 19:43:09.554  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.info.UserController#getMyInfo(String) 
+2025-06-11 19:43:09.554  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.reservation.UserReservationController#getReservations(String, String) 
+2025-06-11 19:43:09.555  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:09.555  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ef8b1fc] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:09.555  o.m.s.SqlSessionUtils - Creating a new SqlSession 
+2025-06-11 19:43:09.555  o.m.s.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56ee2b0] was not registered for synchronization because synchronization is not active 
+2025-06-11 19:43:09.555  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:09.555  o.s.j.d.DataSourceUtils - Fetching JDBC Connection from DataSource 
+2025-06-11 19:43:09.555  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1959495966 wrapping org.postgresql.jdbc.PgConnection@77097168] will not be managed by Spring 
+2025-06-11 19:43:09.555  o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@13935372 wrapping org.postgresql.jdbc.PgConnection@65d25119] will not be managed by Spring 
+2025-06-11 19:43:09.555  c.e.y.u.r.U.selectUserInfoForMypage - ==>  Preparing: SELECT uId, uName, uEmail, uPhone FROM users WHERE uId = ? 
+2025-06-11 19:43:09.555  c.e.y.r.r.R.selectByUserId - ==>  Preparing: SELECT * FROM reservations WHERE uId = ? 
+2025-06-11 19:43:09.555  c.e.y.u.r.U.selectUserInfoForMypage - ==> Parameters: test(String) 
+2025-06-11 19:43:09.555  c.e.y.r.r.R.selectByUserId - ==> Parameters: test(String) 
+2025-06-11 19:43:09.556  c.e.y.u.r.U.selectUserInfoForMypage - <==      Total: 1 
+2025-06-11 19:43:09.556  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ef8b1fc] 
+2025-06-11 19:43:09.556  c.e.y.r.r.R.selectByUserId - <==      Total: 1 
+2025-06-11 19:43:09.556  o.m.s.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56ee2b0] 
+2025-06-11 19:43:09.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:09.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json] 
+2025-06-11 19:43:09.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [User(uId=test, uPwd=null, uEmail=test@example.com, uName=테스트유저, uPhone=010-0000-0000)] 
+2025-06-11 19:43:09.556  o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Reservation(rId=1, uId=test, tName=보톡스 시술, consultDate=Sun Jun 01 00:00:00 KST 2025, consultTime=14 (truncated)...] 
+2025-06-11 19:43:09.556  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:09.556  o.s.w.s.DispatcherServlet - Completed 200 OK 
+2025-06-11 19:43:10.441  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:10.441  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:10.441  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:10.441  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:10.441  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:10.442  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:10.442  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:10.442  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:10.442  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:10.442  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:10.445  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:43:10.445  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:10.446  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:43:10.446  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:43:10.446  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:43:10.446  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:43:10.446  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:43:10.446  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:43:10.447  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:43:10.447  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:43:10.954  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 19:43:10.954  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-11 19:43:11.326  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: (port 65192) op = 82 
+2025-06-11 19:43:11.326  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: (port 65192) op = 80 
+2025-06-11 19:43:11.327  s.r.loader - RMI TCP Connection(13)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2b62bfb8 
+2025-06-11 19:43:11.327  s.r.loader - RMI TCP Connection(13)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2b62bfb8 
+2025-06-11 19:43:11.327  s.r.loader - RMI TCP Connection(13)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2b62bfb8 
+2025-06-11 19:43:11.327  s.r.loader - RMI TCP Connection(13)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2b62bfb8 
+2025-06-11 19:43:11.327  s.r.loader - RMI TCP Connection(13)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2b62bfb8 
+2025-06-11 19:43:39.298  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: (port 65192) connection closed 
+2025-06-11 19:43:39.298  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=65473,localport=65192] 
+2025-06-11 19:43:39.298  s.r.t.tcp - RMI TCP Connection(13)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=65473,localport=65192] 
+2025-06-11 19:43:40.963  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 19:43:40.963  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 

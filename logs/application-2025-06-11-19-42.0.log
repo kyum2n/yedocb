@@ -1,0 +1,35 @@
+2025-06-11 19:42:09.288  s.r.t.tcp - RMI TCP Connection(12)-127.0.0.1: accepted socket from [127.0.0.1:65386] 
+2025-06-11 19:42:09.293  s.r.t.tcp - RMI TCP Connection(12)-127.0.0.1: (port 65192) op = 80 
+2025-06-11 19:42:09.293  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-11 19:42:10.929  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 19:42:10.929  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-11 19:42:24.295  s.r.t.tcp - RMI TCP Connection(12)-127.0.0.1: (port 65192) connection closed 
+2025-06-11 19:42:24.295  s.r.t.tcp - RMI TCP Connection(12)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=65386,localport=65192] 
+2025-06-11 19:42:24.295  s.r.t.tcp - RMI TCP Connection(12)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=65386,localport=65192] 
+2025-06-11 19:42:40.939  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 19:42:40.939  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-11 19:42:46.050  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:42:46.050  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:42:46.050  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:42:46.050  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:42:46.050  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:42:46.052  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:42:46.052  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:42:46.053  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:42:46.053  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:42:46.053  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:42:46.059  o.s.s.w.FilterChainProxy - Securing GET /api/noticeEvent 
+2025-06-11 19:42:46.059  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:42:46.059  o.s.s.w.FilterChainProxy - Secured GET /api/noticeEvent 
+2025-06-11 19:42:46.059  o.s.w.s.DispatcherServlet - GET "/api/noticeEvent", parameters={} 
+2025-06-11 19:42:46.060  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]] 
+2025-06-11 19:42:46.060  o.s.w.s.r.ResourceHttpRequestHandler - Resource not found 
+2025-06-11 19:42:46.061  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/noticeEvent.] 
+2025-06-11 19:42:46.061  o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND 
+2025-06-11 19:42:46.061  o.s.s.w.FilterChainProxy - Securing GET /error 
+2025-06-11 19:42:46.062  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:42:59.980  o.s.s.w.FilterChainProxy - Securing POST /api/user/login 
+2025-06-11 19:42:59.980  o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext 
+2025-06-11 19:42:59.980  o.s.s.w.FilterChainProxy - Secured POST /api/user/login 
+2025-06-11 19:42:59.980  o.s.w.s.DispatcherServlet - POST "/api/user/login", parameters={} 
+2025-06-11 19:42:59.981  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.yedocb.user.login.UserLoginController#loginUser(Map) 

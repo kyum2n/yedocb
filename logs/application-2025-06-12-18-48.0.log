@@ -1,0 +1,10 @@
+2025-06-12 18:48:24.301  s.r.t.tcp - RMI TCP Connection(205)-127.0.0.1: accepted socket from [127.0.0.1:60934] 
+2025-06-12 18:48:24.306  s.r.t.tcp - RMI TCP Connection(205)-127.0.0.1: (port 62638) op = 80 
+2025-06-12 18:48:24.306  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-12 18:48:27.966  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-12 18:48:27.966  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-12 18:48:39.308  s.r.t.tcp - RMI TCP Connection(205)-127.0.0.1: (port 62638) connection closed 
+2025-06-12 18:48:39.308  s.r.t.tcp - RMI TCP Connection(205)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=60934,localport=62638] 
+2025-06-12 18:48:39.308  s.r.t.tcp - RMI TCP Connection(205)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=60934,localport=62638] 
+2025-06-12 18:48:57.968  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-12 18:48:57.968  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 

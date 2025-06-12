@@ -1,0 +1,17 @@
+2025-06-11 09:47:09.542  s.r.t.tcp - RMI TCP Connection(27)-127.0.0.1: (port 63092) connection closed 
+2025-06-11 09:47:09.543  s.r.t.tcp - RMI TCP Connection(27)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=63821,localport=63092] 
+2025-06-11 09:47:09.543  s.r.t.tcp - RMI TCP Connection(27)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=63821,localport=63092] 
+2025-06-11 09:47:26.576  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 09:47:26.576  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-11 09:47:54.546  s.r.t.tcp - RMI TCP Connection(28)-127.0.0.1: accepted socket from [127.0.0.1:63856] 
+2025-06-11 09:47:54.548  s.r.t.tcp - RMI TCP Connection(28)-127.0.0.1: (port 63092) op = 80 
+2025-06-11 09:47:54.548  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-11 09:47:56.585  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-11 09:47:56.585  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-11 09:47:57.007  s.r.t.tcp - RMI TCP Connection(28)-127.0.0.1: (port 63092) op = 82 
+2025-06-11 09:47:57.008  s.r.t.tcp - RMI TCP Connection(28)-127.0.0.1: (port 63092) op = 80 
+2025-06-11 09:47:57.009  s.r.loader - RMI TCP Connection(28)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@7e45676 
+2025-06-11 09:47:57.009  s.r.loader - RMI TCP Connection(28)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@7e45676 
+2025-06-11 09:47:57.010  s.r.loader - RMI TCP Connection(28)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@7e45676 
+2025-06-11 09:47:57.010  s.r.loader - RMI TCP Connection(28)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@7e45676 
+2025-06-11 09:47:57.011  s.r.loader - RMI TCP Connection(28)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@7e45676 

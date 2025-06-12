@@ -2,6 +2,7 @@ package com.example.yedocb.admin.info;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ import com.example.yedocb.admin.repository.AdminMapper;
  */
 
 @Service("adminServiceImpl")
+@Primary
 public class AdminServiceImpl implements AdminService {
 
 	// 필드 및 생성자 주입
