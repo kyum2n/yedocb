@@ -28,3 +28,15 @@ CREATE TABLE reservations (
 
     CONSTRAINT fk_reservations_user FOREIGN KEY (uid) REFERENCES users(uid) ON DELETE CASCADE
 );
+
+/*CREATE TABLE noticeEvent (
+    neId SERIAL PRIMARY KEY,
+    neTitle VARCHAR(200) NOT NULL,
+    neContent TEXT NOT NULL,
+    neImageUrl VARCHAR(500),
+    neType VARCHAR(20) NOT NULL,
+    neStartDate DATE,
+    neEndDate DATE,
+    neCreatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
+    neUpdatedAt TIMESTAMP NOT NULL DEFAULT NOW()
+);*/

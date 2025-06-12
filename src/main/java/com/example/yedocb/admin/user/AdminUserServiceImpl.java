@@ -2,6 +2,7 @@ package com.example.yedocb.admin.user;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.yedocb.user.entity.User;
@@ -21,6 +22,7 @@ import lombok.RequiredArgsConstructor;
  * 
  */
 @Service
+@Primary
 @RequiredArgsConstructor
 public class AdminUserServiceImpl implements AdminUserService {
 	

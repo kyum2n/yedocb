@@ -1,23 +1,24 @@
 package com.example.yedocb.admin.reservation;
 
-import java.util.List;
 import java.time.LocalDate;
+import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Primary;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
+import org.springframework.stereotype.Service;
 
 import com.example.yedocb.reservation.entity.Reservation;
 import com.example.yedocb.reservation.repository.ReservationMapper;
 import com.example.yedocb.user.entity.User;
 import com.example.yedocb.user.repository.UserMapper;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Primary
 @RequiredArgsConstructor
 public class AdminReserveServiceImpl implements AdminReserveService {
 
