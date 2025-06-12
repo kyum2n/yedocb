@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.yedocb.noticeevent.repository.NoticeEventMapper">
+
+    <resultMap id="NoticeEventResultMap" type="com.example.yedocb.noticeevent.entity.NoticeEvent">
+        <id property="neId" column="neId"/>
+        <result property="neTitle" column="neTitle"/>
+        <result property="neContent" column="neContent"/>
+        <result property="neImageUrl" column="neImageUrl"/>
+        <result property="neType" column="neType"/>
+        <result property="neStartDate" column="neStartDate"/>
+        <result property="neEndDate" column="neEndDate"/>
+        <result property="neCreatedAt" column="neCreatedAt"/>
+        <result property="neUpdatedAt" column="neUpdatedAt"/>
+    </resultMap>
+
+    <insert id="insertNoticeEvent">
+        INSERT INTO noticeevent (neTitle, neContent, neImageUrl, neType, neStartDate, neEndDate, neCreatedAt, neUpdatedAt)
+        VALUES (#{neTitle}, #{neContent}, #{neImageUrl}, #{neType}, #{neStartDate}, #{neEndDate}, NOW(), NOW())
+    </insert>
+
+    <select id="getAllNoticeEvent" resultMap="NoticeEventResultMap">
+        SELECT * FROM noticeevent ORDER BY neCreatedAt DESC
+    </select>
+
+    <select id="getNoticeEventById" resultMap="NoticeEventResultMap">
+        SELECT * FROM noticeevent WHERE neId = #{neId}
+    </select>
+
+    <update id="updateNoticeEvent">
+        UPDATE noticeevent
+        SET neTitle = #{neTitle},
+            neContent = #{neContent},
+            neImageUrl = #{neImageUrl},
+            neType = #{neType},
+            neStartDate = #{neStartDate},
+            neEndDate = #{neEndDate},
+            neUpdatedAt = NOW()
+        WHERE neId = #{neId}
+    </update>
+
+    <delete id="deleteNoticeEvent">
+        DELETE FROM noticeEvent WHERE neId = #{neId}
+    </delete>
+
+</mapper>

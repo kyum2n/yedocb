@@ -1,0 +1,67 @@
+2025-06-10 18:31:15.386  c.z.h.p.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-10 18:31:15.387  c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled. 
+2025-06-10 18:31:43.725  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: accepted socket from [127.0.0.1:52974] 
+2025-06-10 18:31:43.725  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:43.726  j.m.r.rmi - connectionId=rmi://127.0.0.1  1 
+2025-06-10 18:31:45.293  s.r.t.tcp - RMI TCP Connection(11)-127.0.0.1: accepted socket from [127.0.0.1:52975] 
+2025-06-10 18:31:45.294  s.r.t.tcp - RMI TCP Connection(11)-127.0.0.1: (port 52777) op = 80 
+2025-06-10 18:31:45.294  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 82 
+2025-06-10 18:31:45.295  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.295  s.r.t.tcp - RMI TCP Connection(11)-127.0.0.1: (port 52777) op = 84 
+2025-06-10 18:31:45.295  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 82 
+2025-06-10 18:31:45.296  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:45.296  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:45.296  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.296  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.297  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.297  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.297  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.297  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@2be0f4e6 
+2025-06-10 18:31:45.297  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 84 
+2025-06-10 18:31:45.297  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:45.298  s.r.t.tcp - RMI TCP Connection(10)-127.0.0.1: (port 52780) op = 80 
+2025-06-10 18:31:45.298  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "javax.management.ObjectName", codebase = "" 
+2025-06-10 18:31:45.298  s.r.loader - RMI TCP Connection(10)-127.0.0.1: name = "java.rmi.MarshalledObject", codebase = "" 
+2025-06-10 18:31:45.298  j.m.r.rmi - connectionId=rmi://127.0.0.1  6 unwrapping params with MBean extended ClassLoader. 
+2025-06-10 18:31:45.298  j.m.r.rmi - connectionId=rmi://127.0.0.1  6, name=org.springframework.boot:type=Admin,name=SpringApplication, operationName=shutdown, signature=null 
+2025-06-10 18:31:45.298  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2025-06-10 18:31:45.298  o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC 
+2025-06-10 18:31:45.298  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@499ced11, started on Tue Jun 10 18:29:44 KST 2025 
+2025-06-10 18:31:45.299  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623 
+2025-06-10 18:31:45.300  o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-06-10 18:31:45.301  o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-06-10 18:31:45.303  o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-06-10 18:31:45.303  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599 
+2025-06-10 18:31:45.303  o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure 
+2025-06-10 18:31:45.303  o.a.c.u.LifecycleBase - Setting state for [Connector["http-nio-8080"]] to [STOPPING_PREP] 
+2025-06-10 18:31:45.303  o.a.c.u.LifecycleBase - Setting state for [Connector["http-nio-8080"]] to [STOPPING] 
+2025-06-10 18:31:45.303  o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-06-10 18:31:45.305  o.a.c.u.LifecycleBase - Setting state for [Connector["http-nio-8080"]] to [STOPPED] 
+2025-06-10 18:31:45.305  o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure 
+2025-06-10 18:31:45.305  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 1073741823 
+2025-06-10 18:31:45.305  o.s.c.s.DefaultLifecycleProcessor - Bean 'applicationTaskExecutor' completed its stop procedure 
+2025-06-10 18:31:45.305  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647 
+2025-06-10 18:31:45.305  o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure 
+2025-06-10 18:31:45.306  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2025-06-10 18:31:45.306  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2025-06-10 18:31:45.307  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2025-06-10 18:31:45.308  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2025-06-10 18:31:45.308  c.z.h.p.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0) 
+2025-06-10 18:31:45.308  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7b1cd3b2: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@98b917: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@e5f4774: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@a60d267: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@4f624d4f: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@af705b5: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7ee78778: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@72989129: (connection evicted) 
+2025-06-10 18:31:45.309  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@2f4db200: (connection evicted) 
+2025-06-10 18:31:45.310  c.z.h.p.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1d25c0f1: (connection evicted) 
+2025-06-10 18:31:45.310  c.z.h.p.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0) 
+2025-06-10 18:31:45.310  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
