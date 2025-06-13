@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.yedocb.inquiry.repository.InquiryMapper">
+	
+	<!-- 전체 문의 목록 조회(관리자) -->
+	<select id="getAllInquiries" resultType="com.example.yedocb.inquiry.entity.Inquiry">
+		SELECT * FROM inquiry
+	</select>
+	
+	<!-- 사용자별 문의 내역 조회(사용자 - 마이페이지) -->
+	<select id="getInquiriesByUId" parameterType="string" resultType="com.example.yedocb.inquiry.entity.Inquiry">
+		SELECT * FROM inquiry
+		WHERE uId = #{uId}
+	</select>
+	
+	<!-- 특정 문의 정보 조회 -->
+	<select id="getInquiriesByQId" parameterType="int" resultType="com.example.yedocb.inquiry.entity.Inquiry">
+		SELECT * FROM inquiry
+		WHERE qId = #{qId}
+	</select>
+	
+	<!-- 문의 작성 및 등록(사용자 – 1:1 문의 페이지) -->
+	<insert id="insertInquiry" parameterType="com.example.yedocb.inquiry.entity.Inquiry">
+		INSERT INTO inquiry (uId, uName, uEmail, visit, qContent, createdAt, qStatus)
+		VALUES (#{uId}, #{uName}, #{uEmail}, #{visit}, #{qContent}, #{createdAt}, #{qStatus})
+	</insert>
+	
+	<!-- 문의 답변 작성(관리자-문의 관리 페이지) -->
+	<update id="updateInquiryAnswer" >
+		UPDATE inquiry
+		SET qAnswer = #{qAnswer},
+			answeredAt = #{answeredAt},
+			qStatus = #{qStatus}
+		WHERE qId = #{qId}
+	</update>
+	
+</mapper>

@@ -38,13 +38,13 @@ public class OAuthController {
     private final JwtTokenProvider jwtTokenProvider;
     private final UserMapper userMapper;
 
-    @Value("${google.client-id}")
+    @Value("${google.client.id}")
     private String GOOGLE_CLIENT_ID;
 
-    @Value("${google.client-secret}")
+    @Value("${google.client.secret}")
     private String GOOGLE_CLIENT_SECRET;
 
-    @Value("${google.redirect-uri}")
+    @Value("${google.redirect.uri}")
     private String REDIRECT_URI;
 
     @PostMapping("/google")
