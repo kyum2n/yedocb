@@ -13,3 +13,6 @@ VALUES ('test', '테스트유저', 'test@example.com', '$2a$10$tTrBmsF8CaOmimgOn
 
 INSERT INTO reservations (uId, tName, consultDate, consultTime, status)
 VALUES ('test', '보톡스 시술', '2025-06-01', '14:30:00', '대기');
+
+INSERT INTO inquiry (uId, uName, uEmail, visit, qContent, createdAt, qStatus)
+VALUES ('test', '테스트유저', 'test@example.com', true, '시술 전 주의사항에 대해 궁금합니다.', '2025-06-01 00:00:00', '답변 대기');
