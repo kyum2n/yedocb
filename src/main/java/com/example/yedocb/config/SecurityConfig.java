@@ -108,7 +108,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.context.SecurityContextHolderFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -154,8 +154,7 @@ public class SecurityConfig {
 
                 .requestMatchers("/api/oauth2/**").permitAll() // 소셜 로그인
                 .requestMatchers("/api/user/send-code").permitAll() // 회원가입 중 이메일
-                .requestMatchers("/api/user/verify-code").permitAll() // 회원가입 중 이메일
-
+                .requestMatchers("/api/user/verify-code").permitAll() // 회원가입 중 이메일 / 중복방지
 
                 .requestMatchers("/api/admin/login").permitAll()
                 .requestMatchers("/api/admin/find_id").permitAll()
@@ -178,7 +177,9 @@ public class SecurityConfig {
             .exceptionHandling(ex -> ex.authenticationEntryPoint((request, response, authException) -> {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             }))
-            .addFilterBefore(jwtAuthenticationFilter, SecurityContextHolderFilter.class)
+            // UsernamePasswordAuthenticationFilter 이전에 JWT 인증 필터를 등록
+            // => 요청 도착 시 먼저 JWT 유효성 검사 → 인증 정보 저장 
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
 
