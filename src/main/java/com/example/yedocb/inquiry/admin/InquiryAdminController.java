@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,12 +39,15 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/admin/inquiry")
 public class InquiryAdminController {
 	
+	// 동일 타입의 Bean 다수 존재 시, 명시적으로 inquiryAdminServiceImpl 빈을 주입
+	// 추후 해당 타입의 빈이 하나만 남을 경우 @Qualifier는 제거 가능
+	
 	// 필드 및 생성자 주입
-	private final InquiryAdminService inquiryAdminService;
+	private final @Qualifier("inquiryAdminServiceImpl") InquiryAdminService inquiryAdminService;
 	private final JwtTokenProvider jwtTokenProvider;
 	
-	public InquiryAdminController(InquiryAdminService inquiryAdminService,
-								JwtTokenProvider jwtTokenProvider) {
+	public InquiryAdminController(@Qualifier("inquiryAdminServiceImpl") InquiryAdminService inquiryAdminService,
+            JwtTokenProvider jwtTokenProvider) {
 		this.inquiryAdminService = inquiryAdminService;
 		this.jwtTokenProvider = jwtTokenProvider;
 	}

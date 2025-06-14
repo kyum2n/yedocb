@@ -2,6 +2,7 @@ package com.example.yedocb.inquiry.user;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +34,9 @@ public class InquiryUserController {
 	private InquiryUserService inquiryUserService;
 	private JwtTokenProvider jwtTokenProvider;
 	
-	public InquiryUserController(InquiryUserService inquiryUserService, JwtTokenProvider jwtTokenProvider) {
+	// 동일 타입의 Bean 다수 존재 시, 명시적으로 inquiryUserServiceImpl 빈을 주입
+	// 추후 해당 타입의 빈이 하나만 남을 경우 @Qualifier는 제거 가능
+	public InquiryUserController(@Qualifier("inquiryUserServiceImpl")InquiryUserService inquiryUserService, JwtTokenProvider jwtTokenProvider) {
 		this.inquiryUserService = inquiryUserService;
 		this.jwtTokenProvider = jwtTokenProvider;
 	}

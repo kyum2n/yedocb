@@ -180,13 +180,14 @@ public class UserController {
         }
 
         String code = generateRandomCode();
-        emailService.sendVerificationCode(uEmail, code);
-        codeStorage.put(uEmail, code); // TTL 없이 임시 저장
+        long timestamp = System.currentTimeMillis();
+        codeStorage.put(uEmail, code + ":" + timestamp); // 코드에 시간만 붙임
 
+        emailService.sendVerificationCode(uEmail, code);
         return ResponseEntity.ok("인증 코드가 전송되었습니다.");
     }
 
-    // 인증 코드 검증 / 사용자가 입력한 인증 코드와 저장된 코드 비교 후 성공 시 200 / 실패시 401에러 발생
+    // 인증 코드 검증 / 사용자가 입력한 인증 코드와 저장된 코드 비교 후 성공 시 200 / 실패시 401에러 발생 / 중복 예방
     @PostMapping("/verify-code")
     public ResponseEntity<String> verifyCode(@RequestBody Map<String, String> request) {
         String uEmail = request.get("email");
@@ -196,22 +197,37 @@ public class UserController {
             return ResponseEntity.badRequest().body("이메일과 인증 코드가 필요합니다.");
         }
 
+        // 저장된 코드 가져오기
         String storedCode = codeStorage.get(uEmail);
-        if (storedCode != null && storedCode.equals(inputCode)) {
-            return ResponseEntity.ok("인증 성공");
-        } else {
+
+        // 유효하지 않거나 저장 형식 잘못된 경우
+        if (storedCode == null || !storedCode.contains(":")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("인증번호가 맞지 않습니다.");
         }
-    }
-    
-    // 이메일 중복 방지
-    @GetMapping("/check-email")
-    public ResponseEntity<String> checkEmailDuplicate(@RequestParam("email") String email) {
-        User existing = userService.findUserId(email); // 또는 userMapper.selectByUEmail(uEmail)
 
+        // 저장된 코드 형식: "ABC123:timestamp"
+        String[] parts = storedCode.split(":");
+        String actualCode = parts[0];
+        long timestamp = Long.parseLong(parts[1]);
+
+        // 시간 초과 여부 확인 (180초)
+        if ((System.currentTimeMillis() - timestamp) > 180 * 1000) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("인증번호가 만료되었습니다.");
+        }
+
+        // 코드 일치 여부 확인
+        if (!actualCode.equals(inputCode)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("인증번호가 맞지 않습니다.");
+        }
+
+        // 추가: 이미 가입된 이메일인지 확인
+        User existing = userService.findUserId(uEmail);
         if (existing != null) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("이미 가입되어있는 이메일입니다.");
         }
-        return ResponseEntity.ok("사용 가능한 이메일입니다.");
+
+        // 모든 조건 통과 시 성공
+        return ResponseEntity.ok("인증 성공");
     }
+    
 }
