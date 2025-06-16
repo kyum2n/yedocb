@@ -28,7 +28,7 @@ jobs:
           echo "$PRIVATE_KEY" > key.pem
           chmod 600 key.pem
 
-          JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+          JAR_FILE=$(ls build/libs/*SNAPSHOT.jar | grep -v plain | head -n 1)
           echo "Uploading JAR file: $JAR_FILE"
 
           scp -i key.pem -o StrictHostKeyChecking=no "$JAR_FILE" ec2-user@$HOST:/home/ec2-user/app.jar
