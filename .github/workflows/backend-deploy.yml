@@ -30,5 +30,5 @@ jobs:
           scp -i key.pem -o StrictHostKeyChecking=no build/libs/*.jar ec2-user@$HOST:/home/ec2-user/app.jar
           ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST << EOF
             pkill -f 'java -jar' || true
-            nohup java -jar /home/ec2-user/app.jar > log.txt 2>&1 &
+            nohup /opt/corretto/amazon-corretto-21.0.7.6.1-linux-x64/bin/java -jar /home/ec2-user/app.jar > log.txt 2>&1 &
           EOF
