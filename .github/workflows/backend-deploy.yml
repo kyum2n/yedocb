@@ -29,8 +29,7 @@ jobs:
           chmod 600 key.pem
 
           JAR_FILE=$(ls build/libs/*SNAPSHOT.jar | grep -v plain | head -n 1)
-          echo "Uploading JAR file: $JAR_FILE"
-
+          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST "rm -f /home/ec2-user/app.jar"
           scp -i key.pem -o StrictHostKeyChecking=no "$JAR_FILE" ec2-user@$HOST:/home/ec2-user/app.jar
 
           ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST << 'EOF'
