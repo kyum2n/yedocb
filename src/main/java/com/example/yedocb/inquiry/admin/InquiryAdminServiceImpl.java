@@ -3,6 +3,7 @@ package com.example.yedocb.inquiry.admin;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import com.example.yedocb.admin.info.AdminEmailService;
 import com.example.yedocb.inquiry.entity.Inquiry;
@@ -20,6 +21,7 @@ import com.example.yedocb.inquiry.repository.InquiryMapper;
  * 
  */
 
+@Primary
 @Service
 public class InquiryAdminServiceImpl implements InquiryAdminService{
 

@@ -101,6 +101,8 @@ public class JwtTokenProvider {
             return true; // 유효한 토큰
         } catch (Exception e) {
         	// 파싱 중 예외 발생하면 잘못된 토큰
+        	System.out.println("[JwtProvider] 유효하지 않은 토큰: " + token);
+            e.printStackTrace();
             return false;
         }
     }
