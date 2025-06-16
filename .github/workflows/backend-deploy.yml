@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -18,7 +17,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Build with Gradle (skip test)
+      - name: Build with Gradle
         run: ./gradlew clean build -x test
 
       - name: Deploy to EC2
@@ -26,13 +25,18 @@ jobs:
           PRIVATE_KEY: ${{ secrets.YEDOC }}
           HOST: ${{ secrets.BACKEND_HOST }}
         run: |
-          
-          printf "%s" "$PRIVATE_KEY" > key.pem
+          echo "$PRIVATE_KEY" > key.pem
           chmod 600 key.pem
 
-          
-          scp -i key.pem -o StrictHostKeyChecking=no build/libs/yedocb-0.0.1-SNAPSHOT.jar ec2-user@$HOST:/home/ec2-user/app.jar
+          JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+          echo "Uploading JAR file: $JAR_FILE"
 
-          # EC2에서 실행 (java 경로 명시)
-          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST << EOF
+          scp -i key.pem -o StrictHostKeyChecking=no "$JAR_FILE" ec2-user@$HOST:/home/ec2-user/app.jar
+
+          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST << 'EOF'
             pkill -f 'java -jar' || true
+            echo "Running JAR..."
+            nohup /opt/corretto/amazon-corretto-21.0.7.6.1-linux-x64/bin/java -jar /home/ec2-user/app.jar > log.txt 2>&1 &
+            sleep 3
+            tail -n 20 /home/ec2-user/log.txt
+          EOF
