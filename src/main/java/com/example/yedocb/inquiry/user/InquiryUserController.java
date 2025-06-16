@@ -1,6 +1,7 @@
 package com.example.yedocb.inquiry.user;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,6 @@ public class InquiryUserController {
 	private InquiryUserService inquiryUserService;
 	private JwtTokenProvider jwtTokenProvider;
 	
-	// 동일 타입의 Bean 다수 존재 시, 명시적으로 inquiryUserServiceImpl 빈을 주입
-	// 추후 해당 타입의 빈이 하나만 남을 경우 @Qualifier는 제거 가능
 	public InquiryUserController(@Qualifier("inquiryUserServiceImpl")InquiryUserService inquiryUserService, JwtTokenProvider jwtTokenProvider) {
 		this.inquiryUserService = inquiryUserService;
 		this.jwtTokenProvider = jwtTokenProvider;
@@ -51,6 +50,7 @@ public class InquiryUserController {
 		
 		// 문의 내역 불러오기
 		List<Inquiry> inquiries = inquiryUserService.getInquiriesByUId(uId);
+		
 				
 		return ResponseEntity.ok(inquiries);
 	}

@@ -7,6 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,15 +54,22 @@ public class InquiryAdminController {
 		this.inquiryAdminService = inquiryAdminService;
 		this.jwtTokenProvider = jwtTokenProvider;
 	}
+
 	
 	// 전체 문의 목록 조회 (관리자)
 	@GetMapping
 	public ResponseEntity<?> getAllInquiries(@RequestHeader("Authorization") String authHeader){
+		// 디버깅
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		System.out.println("컨트롤러 접근한 인증 주체: " + auth.getPrincipal());
+		System.out.println("권한 목록: " + auth.getAuthorities());
+		
 		// 토큰&권한 추출
 		String token = authHeader.replace("Bearer", "").trim();
 		List<String> roles = jwtTokenProvider.getRoles(token);
 		
-		if(roles == null || !roles.contains("ADMIN") && !roles.contains("SUPERADMIN")) {
+		if(roles == null || !(roles.contains("ADMIN") || roles.contains("SUPERADMIN"))) {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("관리자 권한이 필요합니다.");
 		}
 		
@@ -70,14 +80,14 @@ public class InquiryAdminController {
 	
 	// 문의 답변 작성 및 이메일 전송(관리자-문의 관리 페이지)
 	@PostMapping("/{qId}/answer")
-	public ResponseEntity<String> answerInquiry(@PathVariable int qId,
+	public ResponseEntity<String> answerInquiry(@PathVariable("qId") int qId,
 												@RequestBody Map<String, String> request,
 												@RequestHeader("Authorization") String authHeader){
 		// 토큰&권한 추출
 		String token = authHeader.replace("Bearer", "").trim();
 		List<String> roles = jwtTokenProvider.getRoles(token);
 				
-		if(roles == null || !roles.contains("ADMIN") && !roles.contains("SUPERADMIN")) {
+		if(roles == null || !(roles.contains("ADMIN") || roles.contains("SUPERADMIN"))) {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("관리자 권한이 필요합니다.");
 		}
 		

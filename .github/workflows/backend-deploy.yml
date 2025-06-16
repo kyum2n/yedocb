@@ -1,0 +1,33 @@
+name: Backend CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+
+      - name: Build
+        run: ./gradlew clean build -x test
+
+      - name: Deploy to EC2
+        env:
+          PRIVATE_KEY: ${{ secrets.YEDOC }}
+          HOST: ${{ secrets.BACKEND_HOST }}
+        run: |
+          echo "$PRIVATE_KEY" > key.pem
+          chmod 600 key.pem
+          scp -i key.pem -o StrictHostKeyChecking=no build/libs/*.jar ec2-user@$HOST:/home/ec2-user/app.jar
+          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@$HOST << EOF
+            pkill -f 'java -jar' || true
+            nohup java -jar /home/ec2-user/app.jar > log.txt 2>&1 &
+          EOF
