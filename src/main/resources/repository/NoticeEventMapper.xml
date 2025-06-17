@@ -22,7 +22,7 @@
     </insert>
 
     <select id="getAllNoticeEvent" resultMap="NoticeEventResultMap">
-        SELECT * FROM noticeevent ORDER BY neCreatedAt DESC
+        SELECT * FROM noticeevent ORDER BY neId DESC
     </select>
 
     <select id="getNoticeEventById" resultMap="NoticeEventResultMap">

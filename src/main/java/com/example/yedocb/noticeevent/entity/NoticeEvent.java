@@ -11,8 +11,9 @@ public class NoticeEvent {
 	private String neContent;
 	private String neImageUrl;
 	private String neType;
-	private String neStartDate;
-	private String neCreatedAt;
-	private String neUpdatedAt;
-	private String neEndDate;
+	
+	private LocalDate neStartDate;
+	private LocalDate neCreatedAt;
+	private LocalDate neUpdatedAt;
+	private LocalDate neEndDate;
 }
