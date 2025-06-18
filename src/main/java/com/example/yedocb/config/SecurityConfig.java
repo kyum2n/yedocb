@@ -163,12 +163,12 @@ public class SecurityConfig {
                 .requestMatchers("/api/noticeEvent/**").permitAll()  // 공지사항 permitAll
                 .requestMatchers("/api/admin/noticeEvent/**").hasAnyRole("ADMIN", "SUPERADMIN")  // 공지사항 관리자 페이지
                 .requestMatchers("/api/reserve/disabled-times", "/api/reserve/disabled-times/**").permitAll()
-                .requestMatchers("/api/admin/reserve").permitAll()
-                .requestMatchers("/api/admin/reserve/**").permitAll()
-                .requestMatchers("/api/admin/users").permitAll()
-                .requestMatchers("/api/admin/users/**").permitAll()
-                .requestMatchers("/api/admin/user").permitAll()
-                .requestMatchers("/api/admin/user/**").permitAll()
+                .requestMatchers("/api/admin/reserve").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/reserve/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/users").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/users/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/user").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers("/api/admin/user/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .requestMatchers("/api/reserve/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .requestMatchers("/api/inquiry/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
