@@ -24,8 +24,10 @@ jobs:
           echo "google.client.id=${{ secrets.VITE_GOOGLE_CLIENT_ID }}" >> src/main/resources/application.properties
           echo "google.client.secret=${{ secrets.VITE_GOOGLE_CLIENT_SECRET }}" >> src/main/resources/application.properties
           echo "google.redirect.uri=${{ secrets.VITE_GOOGLE_REDIRECT_URI }}" >> src/main/resources/application.properties
+          echo "google.logout.redirect.uri=${{ secrets.VITE_GOOGLE_LOGOUT_REDIRECT_URI }}" >> src/main/resources/application.properties
           echo "kakao.client.id=${{ secrets.KAKAO_CLIENT_ID }}" >> src/main/resources/application.properties
           echo "kakao.redirect.uri=${{ secrets.KAKAO_REDIRECT_URI }}" >> src/main/resources/application.properties
+          echo "kakao.logout.redirect.uri=${{ secrets.VITE_KAKAO_LOGOUT_REDIRECT_URI }}" >> src/main/resources/application.properties
 
       - name: Build with Gradle
         run: ./gradlew clean build -x test
