@@ -17,6 +17,16 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Append OAuth keys to application.properties
+        run: |
+          echo "" >> src/main/resources/application.properties
+          echo "# === OAuth Secrets from GitHub Actions ===" >> src/main/resources/application.properties
+          echo "google.client.id=${{ secrets.VITE_GOOGLE_CLIENT_ID }}" >> src/main/resources/application.properties
+          echo "google.client.secret=${{ secrets.VITE_GOOGLE_CLIENT_SECRET }}" >> src/main/resources/application.properties
+          echo "google.redirect.uri=${{ secrets.VITE_GOOGLE_REDIRECT_URI }}" >> src/main/resources/application.properties
+          echo "kakao.client.id=${{ secrets.KAKAO_CLIENT_ID }}" >> src/main/resources/application.properties
+          echo "kakao.redirect.uri=${{ secrets.KAKAO_REDIRECT_URI }}" >> src/main/resources/application.properties
+
       - name: Build with Gradle
         run: ./gradlew clean build -x test
 
