@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS inquiry;
+DROP TABLE IF EXISTS noticeEvent;
 DROP TABLE IF EXISTS reservations;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS admin;
@@ -34,7 +35,7 @@ CREATE TABLE reservations (
 );
 
 -- 공지사항 테이블
-/*CREATE TABLE noticeEvent (
+CREATE TABLE noticeEvent (
     neId SERIAL PRIMARY KEY,
     neTitle VARCHAR(200) NOT NULL,
     neContent TEXT NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE reservations (
     neEndDate DATE,
     neCreatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
     neUpdatedAt TIMESTAMP NOT NULL DEFAULT NOW()
-);*/
+);
 
 -- 1:1 문의 테이블
 CREATE TABLE inquiry (
