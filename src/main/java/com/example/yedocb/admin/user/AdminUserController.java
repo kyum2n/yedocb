@@ -20,17 +20,20 @@ import lombok.RequiredArgsConstructor;
 public class AdminUserController {
     private final AdminUserService adminUserService;
 
+    // 회원 목록 조회
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(adminUserService.getAllUsers());
     }
 
+    // 회원 등록
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) {
         adminUserService.registerUser(user);
         return ResponseEntity.ok(user);
     }
 
+    // 회원 삭제
     @PostMapping("/{uId}")
     public ResponseEntity<Void> deleteUser(@PathVariable("uId") String uId) {
         adminUserService.deleteUser(uId);
