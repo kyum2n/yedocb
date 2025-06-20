@@ -119,7 +119,7 @@ public class UserReservationController {
     }
     
     
-    // 예약 가능 시간 조회 (나중에 추가해야함)
+    // 예약 가능 시간 조회
     @GetMapping("/check")
     public ResponseEntity<Boolean> checkAvailable(
     @RequestParam("consultDate")

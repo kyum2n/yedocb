@@ -21,14 +21,14 @@ public class NoticeEventService {
         noticeEventMapper.insertNoticeEvent(noticeEvent);
     }
 
+    // 모든 공지사항/이벤트 목록 불러오기
+    public List<NoticeEvent> getAllNoticeEvent() {
+    	return noticeEventMapper.getAllNoticeEvent();
+    }
+
     // 특정 공지사항/이벤트 항목 불러오기
     public NoticeEvent getNoticeEventById(int neId) {
         return noticeEventMapper.getNoticeEventById(neId);
-    }
-
-    // 모든 공지사항/이벤트 목록 불러오기
-    public List<NoticeEvent> getAllNoticeEvent() {
-        return noticeEventMapper.getAllNoticeEvent();
     }
 
     // 공지사항/이벤트 수정하기

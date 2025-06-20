@@ -12,14 +12,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
-	
+	// 사용자 목록 조회
 	List<User> selectAllUsers();
 
-    // 전화번호 또는 비밀번호 수정
-    int updateUserPhonePwd(@Param("uId") String uId,
-            @Param("phone") String phone,
-            @Param("pwd") String pwd);
-    
     // 회원 가입
     int insertUser(User user);
     
@@ -37,4 +32,9 @@ public interface UserMapper {
     
     // 마이페이지 정보
     User selectUserInfoForMypage(String uId);
+
+    // 전화번호 또는 비밀번호 수정
+    int updateUserPhonePwd(@Param("uId") String uId,
+    		@Param("phone") String phone,
+    		@Param("pwd") String pwd);
 }

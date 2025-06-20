@@ -23,5 +23,5 @@ public interface UserService {
     User findUserPassword(String uId); // 임시 비밀번호를 직접 반환
     
     // 사용자 정보
-    User getUserInfoForMypage(String uid);
+    User getUserInfoForMypage(String uId);
 }
